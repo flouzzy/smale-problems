@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}Introduction and Theoretical Framework}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Historical Background and Motivation}{3}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Exact Energies of Canonical Symmetric Configurations}{3}{section.2}%
+\contentsline {section}{\numberline {3}Continuous Potential Theory and Asymptotics}{3}{section.3}%
+\contentsline {section}{\numberline {4}Machine-Checked Formal Verification in Lean 4}{4}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion and Perspectives}{4}{section.5}%
