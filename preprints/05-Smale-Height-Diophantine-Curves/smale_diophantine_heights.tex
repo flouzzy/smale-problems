@@ -11,6 +11,9 @@
 \usepackage{booktabs}
 \usepackage{fancyhdr}
 \usepackage{array}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
 
 \hypersetup{
     colorlinks=true,
@@ -213,6 +216,16 @@ Dividing by $\theta > 0$:
 which is effectively computable and holds for every $P \in C(K)$.
 \end{proof}
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzcd}[column sep=huge, row sep=large]
+C \arrow[r, "f", "\deg(f)"'] \arrow[d, "{\text{div}(f)}"'] & \mathbb{P}^1 \arrow[d, "{\text{Branch locus } \{0, 1, \infty\}}"] \\
+\sum_{P} e_P(f) P \arrow[r, "{\text{Riemann-Hurwitz}}"'] & {\deg(R_f) = 2g - 2 + 2\deg(f)}
+\end{tikzcd}
+\caption{\textbf{The Belyi Morphism Architecture in Elkies' Theorem.} The finite morphism $f: C \to \mathbb{P}^1$ branched strictly over $\{0, 1, \infty\}$ pulls back the $abc$ radical inequality on $\mathbb{P}^1$ to the curve $C$. The genus gap $2g - 2 \ge 2 > 0$ guarantees a strictly positive exponent $\theta > 0$, bounding the Weil height $h(P)$ uniformly.}
+\label{fig:belyi_architecture}
+\end{figure}
+
 \section{The Chabauty-Coleman $p$-Adic Integration Method}
 
 When the Mordell-Weil rank of the Jacobian is strictly smaller than the genus ($r < g$), the method developed by Claude Chabauty (1941) \cite{chabauty1941} and Robert Coleman (1985) \cite{coleman1985} provides unconditional effective bounds:
@@ -233,6 +246,33 @@ Then:
 \end{equation}
 Moreover, rational points are zeros of explicit $p$-adic Coleman integrals $\int_{P_0}^P \omega = 0$ for regular 1-forms $\omega \in H^0(C, \Omega^1)$, allowing effective computation of all coordinates.
 \end{theorem}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.0]
+  % Jacobian variety boundary
+  \draw[thick, fill=gray!10, draw=gray!60] (0,0) ellipse (4.5cm and 2.5cm);
+  \node[gray!80!black, font=\small] at (-3.0, 1.8) {$J_C(\mathbb{Q}_p) \text{ (dim } g)$};
+
+  % Mordell-Weil closure Gamma (subspace of dim r < g)
+  \draw[very thick, teal, rotate=-15] (-3.8, 0) -- (3.8, 0);
+  \node[teal, font=\small, rotate=-15] at (2.2, 0.4) {$\overline{\Gamma} = \overline{J_C(\mathbb{Q})} \text{ (dim } r < g)$};
+
+  % Curve embedded in Jacobian
+  \draw[thick, blue!80!black, smooth] plot coordinates {(-3,-1) (-1.5, 0.5) (0, -0.8) (1.8, 0.9) (3.2, -0.5)};
+  \node[blue!80!black, font=\small] at (3.0, -1.0) {$C(\mathbb{Q}_p) \hookrightarrow J_C(\mathbb{Q}_p)$};
+
+  % Rational points intersection
+  \filldraw[red!80!black] (-1.08, 0.28) circle (2.5pt) node[above left, font=\scriptsize] {$P_1 \in C(\mathbb{Q})$};
+  \filldraw[red!80!black] (1.35, -0.36) circle (2.5pt) node[below right, font=\scriptsize] {$P_2 \in C(\mathbb{Q})$};
+
+  % Annihilating form action
+  \draw[dashed, red!60!black] (-4.0, 1.0) -- (4.0, -1.0);
+  \node[red!60!black, font=\scriptsize] at (-2.0, 1.2) {$\ker(\log_\omega) \supset \overline{\Gamma}$};
+\end{tikzpicture}
+\caption{\textbf{Geometry of the Chabauty-Coleman Method.} When the Mordell-Weil rank satisfies $r < g$, the topological closure $\overline{\Gamma}$ spans a proper Lie subgroup of $J_C(\mathbb{Q}_p)$. Annihilating differentials $\omega \in V_{\text{ann}}$ define analytic Coleman integrals whose zeros strictly isolate the rational points $C(\mathbb{Q})$ inside residue disks.}
+\label{fig:chabauty_geometry}
+\end{figure}
 
 \begin{proof}[Detailed Proof Mechanism]
 1. Let $\Omega^1(C/\mathbb{Q}_p) \cong H^0(C_{\mathbb{Q}_p}, \Omega^1)$ be the $g$-dimensional vector space of regular differentials on $C$.

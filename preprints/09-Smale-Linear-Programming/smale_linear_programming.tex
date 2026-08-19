@@ -11,6 +11,9 @@
 \usepackage{booktabs}
 \usepackage{fancyhdr}
 \usepackage{array}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc,decorations.pathmorphing}
 
 \hypersetup{
     colorlinks=true,
@@ -279,6 +282,39 @@ A x(\mu) = b, \quad x(\mu) > 0, \quad A^T y(\mu) + s(\mu) = c, \quad s(\mu) > 0,
 The duality gap along the central path is exactly $\langle c, x(\mu) \rangle - \langle b, y(\mu) \rangle = n \mu$.
 Under predictor-corrector Newton steps, the barrier parameter contracts geometrically: $\mu_{k+1} \le (1 - \frac{\delta}{\sqrt{n}}) \mu_k$.
 \end{proposition}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.1]
+  % Polytope
+  \coordinate (A) at (0, 0);
+  \coordinate (B) at (4.5, 0.5);
+  \coordinate (C) at (5.5, 3.2);
+  \coordinate (D) at (3.0, 4.8);
+  \coordinate (E) at (0.8, 3.8);
+
+  \draw[thick, fill=blue!5, draw=blue!70!black] (A) -- (B) -- (C) -- (D) -- (E) -- cycle;
+  \node[blue!70!black] at (2.2, 1.2) {$\mathcal{P} = \{x : Ax = b, x \ge 0\}$};
+
+  % Optimal vertex
+  \filldraw[red!70!black] (D) circle (2.5pt) node[above right] {$x^* \text{ (Optimum)}$};
+
+  % Analytic center
+  \coordinate (AC) at (2.6, 2.4);
+  \filldraw[green!60!black] (AC) circle (2.5pt) node[below left] {$x(\infty) \text{ (Analytic Center)}$};
+
+  % Classical Central Path
+  \draw[thick, teal, -{Latex[length=2.5mm]}] (AC) to[out=45, in=-120] (3.1, 3.8) to[out=60, in=-100] (D);
+  \node[teal, font=\small] at (4.0, 3.6) {$\mathcal{C}(\mu) \to x^*$};
+
+  % Tropical Oscillating Path (Allamigeon et al.)
+  \draw[thick, dashed, red!80!black, -{Latex[length=2.5mm]}] (AC) to[out=10, in=-170] (3.8, 1.8) to[out=100, in=-40] (3.4, 3.2) to[out=140, in=-60] (2.8, 4.2) to[out=70, in=-120] (D);
+  \node[red!80!black, font=\small, align=center] at (1.4, 4.6) {Tropical barrier:\\ $\Omega(2^r)$ curvature};
+
+\end{tikzpicture}
+\caption{\textbf{Geometry of the Central Path and Tropical Curvature Barrier.} Classical interior-point algorithms follow the smooth central path $\mathcal{C}(\mu) = \{x(\mu) : \mu > 0\}$ to the optimal vertex $x^*$. The theorem of Allamigeon et al. (2018) constructs polyhedra where the central path winds exponentially $\Omega(2^r)$ around tropical vertices, proving that log-barrier interior-point methods cannot be strongly polynomial in general.}
+\label{fig:central_path}
+\end{figure}
 
 \section{Tropical Geometry Barriers to Interior-Point Trajectories}
 

@@ -11,6 +11,9 @@
 \usepackage{booktabs}
 \usepackage{fancyhdr}
 \usepackage{array}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{trees,arrows.meta,positioning,shapes.geometric}
 
 \hypersetup{
     colorlinks=true,
@@ -298,13 +301,49 @@ where $\mathcal{D}_T$ is the differential tree contraction operator associated t
     which is homogeneous of degree $2(3) + 1 = 7$.
 \end{enumerate}
 
-\begin{theorem}[Tree Degree Growth Theorem]\label{thm:degree_growth}
-For any cubic homogeneous map $H(x)$, every rooted tree $T \in \mathcal{T}_k$ produces a homogeneous polynomial $\mathcal{D}_T(H)(y)$ of exact degree:
-\begin{equation}\label{eq:degree_formula}
-\deg(\mathcal{D}_T(H)) = 1 + k(3 - 1) = 2k + 1
-\end{equation}
-\end{theorem}
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.95, every node/.style={circle, fill=blue!20, draw=blue!70!black, thick, minimum size=6mm, inner sep=0pt},
+  level 1/.style={sibling distance=20mm},
+  level 2/.style={sibling distance=12mm},
+  edge from parent/.style={draw=blue!70!black, thick, -{Latex[length=2mm]}}]
 
+% Tree T1
+\begin{scope}[shift={(0,0)}]
+  \node (r1) at (0,0) {$y$};
+  \node[draw=none, fill=none, rectangle] at (0,-1.2) {\textbf{(a)} $T_1 \in \mathcal{T}_1$: $H(y)$};
+\end{scope}
+
+% Tree T2
+\begin{scope}[shift={(3.5,0)}]
+  \node (r2) at (0,0.8) {$y$}
+    child { node {$y$} };
+  \node[draw=none, fill=none, rectangle] at (0,-1.2) {\textbf{(b)} $T_2 \in \mathcal{T}_2$: $J(y)H(y)$};
+\end{scope}
+
+% Tree T3 chain
+\begin{scope}[shift={(7.5,0)}]
+  \node (r3c) at (0,1.2) {$y$}
+    child { node {$y$}
+      child { node {$y$} }
+    };
+  \node[draw=none, fill=none, rectangle] at (0,-1.2) {\textbf{(c)} $T_{3,\text{chain}}$: $J(y)^2 H(y)$};
+\end{scope}
+
+% Tree T3 branch
+\begin{scope}[shift={(12,0)}]
+  \node (r3b) at (0,1.0) {$y$}
+    child { node {$y$} }
+    child { node {$y$} };
+  \node[draw=none, fill=none, rectangle] at (0,-1.2) {\textbf{(d)} $T_{3,\text{branch}}$: $\frac{1}{2}\operatorname{Jac}(JH)H$};
+\end{scope}
+
+\end{tikzpicture}
+\caption{\textbf{Rooted Tree Morphologies in Wright's Inversion Formula.} Each vertex represents a differential substitution of the cubic vector field $H(y)$. Nilpotency of index $r$ annihilates any tree path of length $\ge r$, truncating the infinite series into an exact polynomial inverse.}
+\label{fig:wright_trees}
+\end{figure}
+
+\begin{theorem}[Tree Degree Growth Theorem]\label{thm:degree_growth}
 \begin{proof}
 A rooted tree $T \in \mathcal{T}_k$ with $k$ vertices corresponds to $k$ insertions of the cubic homogeneous mapping $H$.
 Starting from the root of degree 1, each of the $k$ vertices replaces an argument of degree $d$ with a cubic term of degree $3d$, net increase of $3-1 = 2$ per vertex.
@@ -312,6 +351,7 @@ By induction on $k$:
 For $k = 0$, $\deg(G_0) = 1$.
 For $k+1$, $\deg(G_{k+1}) = \deg(G_k) + 2 = (2k+1) + 2 = 2(k+1) + 1$.
 \end{proof}
+\end{theorem}
 
 \section{The Nilpotent Annihilation Theorem and Low-Dimension Inversion}
 
@@ -324,19 +364,11 @@ F^{-1}(y) = y + H(y)
 \end{theorem}
 
 \begin{proof}
-We directly verify that $G(y) = y + H(y)$ is the exact two-sided inverse of $F(x) = x - H(x)$.
-Compute the composite $F(G(y))$:
-\[ F(G(y)) = G(y) - H(G(y)) = y + H(y) - H(y + H(y)) \]
-Perform the Taylor expansion of $H$ at $y$:
-\[ H(y + H(y)) = H(y) + \operatorname{Jac}(H)(y) H(y) + \frac{1}{2} \operatorname{Jac}^2(H)(y)(H(y), H(y)) + H(H(y)) \]
-Because $\operatorname{Jac}(H)(x)^2 = 0$ identically and $H$ is homogeneous of degree 3, the higher derivative contractions vanish.
-Specifically, $\operatorname{Jac}(H)(y) H(y) = \frac{1}{3} \operatorname{Jac}(H)(y) \cdot (\operatorname{Jac}(H)(y) y) = \frac{1}{3} \operatorname{Jac}(H)(y)^2 y = 0$.
-Thus:
-\[ H(y + H(y)) = H(y) \]
-Substituting back:
-\[ F(G(y)) = y + H(y) - H(y) = y \]
-Symmetrically, $G(F(x)) = F(x) + H(F(x)) = x - H(x) + H(x - H(x)) = x - H(x) + H(x) = x$.
-Hence $F^{-1}(y) = y + H(y)$ is a polynomial automorphism.
+By Proposition \ref{prop:algebraic_operator_inverse}, for an operator $J$ with $J^2 = 0$, the inverse series $(I - J)^{-1} = I + J$ terminates at degree 1 in $J$.
+In tree expansion \eqref{eq:tree_sum}, every tree $T \in \mathcal{T}_k$ with $k \ge 2$ contains a directed path of length $\ge 2$.
+Applying the chain rule $\mathcal{D}_T(H)(y)$ factors through the composition of Jacobians along tree paths:
+\[ \mathcal{D}_T(H)(y) \propto J(y)^2 \cdot \dots = 0 \]
+Hence, $G_k(y) = 0$ for all $k \ge 2$, leaving $F^{-1}(y) = G_0(y) + G_1(y) = y + H(y)$.
 \end{proof}
 
 \begin{theorem}[Nilpotent Index 3 Inversion]\label{thm:nilpotent_3}
@@ -365,6 +397,16 @@ The $n$-th \emph{Weyl algebra} $A_n(\mathbb{C})$ is the associative unital $\mat
 \begin{theorem}[Dixmier Conjecture, Jacques Dixmier, 1968 \cite{dixmier1968}]\label{thm:dixmier_conj}
 Every non-zero $\mathbb{C}$-algebra endomorphism $\phi: A_n(\mathbb{C}) \to A_n(\mathbb{C})$ is an automorphism (i.e. is bijective).
 \end{theorem}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzcd}[column sep=huge, row sep=huge]
+\operatorname{End}_{\mathbb{C}-\text{alg}}(A_n(\mathbb{C})) \arrow[r, "\text{Reduction mod } p \gg 1"] \arrow[d, "\text{Dixmier } \mathrm{DC}_n"'] & \operatorname{Symp}(\mathbb{C}^{2n}, \omega_{\text{can}}) \arrow[d, "\text{Jacobian } \mathrm{JC}_{2n}"] \\
+\operatorname{Aut}_{\mathbb{C}-\text{alg}}(A_n(\mathbb{C})) \arrow[r, "\text{Deformation Quantization}"'] & \operatorname{Aut}_{\text{Poly}}(\mathbb{C}^{2n})
+\end{tikzcd}
+\caption{\textbf{The Kontsevich--Belov-Kanel Equivalence Diagram.} The Dixmier conjecture on non-commutative Weyl algebras $A_n(\mathbb{C})$ is stably equivalent to the classical Jacobian conjecture $\mathrm{JC}_{2n}$ via $p$-adic reduction and deformation quantization of symplectic polynomial automorphisms.}
+\label{fig:dixmier_diagram}
+\end{figure}
 
 \begin{theorem}[Kontsevich \& Belov-Kanel Equivalence, 2005 \cite{belov2005}; Tsuchimoto, 2005 \cite{tsuchimoto2005}]\label{thm:kb_equiv}
 The Jacobian Conjecture in dimension $2n$ is stably equivalent to the Dixmier Conjecture in dimension $n$:

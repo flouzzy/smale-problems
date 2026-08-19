@@ -11,6 +11,9 @@
 \usepackage{booktabs}
 \usepackage{fancyhdr}
 \usepackage{array}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc}
 
 \hypersetup{
     colorlinks=true,
@@ -264,6 +267,41 @@ Setting the gradient $\nabla_{\boldsymbol{\alpha}} Q(\boldsymbol{\alpha}) = 0$:
 Since $\mathbf{K}$ is positive semi-definite and $\gamma > 0$, the matrix $(\mathbf{K} + m \gamma \mathbf{I}_m)$ is strictly positive definite, hence invertible, yielding the unique solution $\boldsymbol{\alpha} = (\mathbf{K} + m \gamma \mathbf{I}_m)^{-1} \mathbf{y}$.
 \end{proof}
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.1]
+  % Plane V_x
+  \draw[thick, fill=blue!10, draw=blue!60] (-3,-1) -- (2,-1) -- (4,1.5) -- (-1,1.5) -- cycle;
+  \node[blue!80!black, font=\small] at (3.0, 1.2) {$V_{\mathbf{x}} = \operatorname{span}\{K_{x_1}, \dots, K_{x_m}\}$};
+
+  % Origin
+  \coordinate (O) at (0.5, 0.2);
+
+  % f_parallel on the plane
+  \coordinate (Fpar) at (1.8, 0.5);
+  \draw[thick, blue!80!black, -{Latex[length=2.5mm]}] (O) -- (Fpar) node[midway, below, font=\small] {$f_\parallel$};
+  \filldraw[blue!80!black] (Fpar) circle (2pt);
+
+  % f_perp orthogonal to plane
+  \coordinate (Fperp) at (0.5, 2.5);
+  \draw[thick, red!80!black, -{Latex[length=2.5mm]}] (O) -- (Fperp) node[midway, left, font=\small] {$f_\perp \in V_{\mathbf{x}}^\perp$};
+
+  % Total f
+  \coordinate (Ftot) at ($(Fpar) + (0, 2.3)$);
+  \draw[very thick, purple!80!black, -{Latex[length=3mm]}] (O) -- (Ftot) node[above, font=\small] {$f = f_\parallel + f_\perp$};
+  \filldraw[purple!80!black] (Ftot) circle (2pt);
+
+  % Dashed projection lines
+  \draw[dashed, gray] (Fpar) -- (Ftot);
+  \draw[dashed, gray] (Fperp) -- (Ftot);
+
+  % Right angle symbol
+  \draw[thin, gray] ($(O) + (0, 0.3)$) -- ($(O) + (0.3, 0.3)$) -- ($(O) + (0.3, 0)$);
+\end{tikzpicture}
+\caption{\textbf{Orthogonal Decomposition in the Representer Theorem.} Any hypothesis $f \in \mathcal{H}_K$ decomposes into $f_\parallel \in V_{\mathbf{x}}$ and $f_\perp \in V_{\mathbf{x}}^\perp$. The empirical risk depends strictly on $f(x_i) = f_\parallel(x_i)$, while the penalty $\|f\|_K^2 = \|f_\parallel\|_K^2 + \|f_\perp\|_K^2$ strictly increases whenever $f_\perp \ne 0$. Thus, the minimizer must lie entirely in the span $V_{\mathbf{x}}$.}
+\label{fig:representer_projection}
+\end{figure}
+
 \section{Generalization Bounds and Optimal Learning Rates}
 
 \begin{definition}[Hölder Source Condition]\label{def:source_condition}
@@ -294,6 +332,35 @@ Under the source condition $f_\rho = L_K^r g$ with $0 < r \le 1$:
 \[ \|f_\gamma - f_\rho\|_{L^2}^2 \le (\gamma^r)^2 \sum_{j=1}^\infty \langle g, \Phi_j \rangle_{L^2}^2 = \gamma^{2r} \|g\|_{L^2}^2 \]
 Taking the square root gives $\|f_\gamma - f_\rho\|_{L^2} \le \gamma^r \|g\|_{L^2}$.
 \end{proof}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.1]
+  % Axes
+  \draw[->, thick] (0, 0) -- (6.0, 0) node[right, font=\small] {$\gamma$ (Regularization)};
+  \draw[->, thick] (0, 0) -- (0, 4.2) node[above, font=\small] {Error $\|f_{\mathbf{z}, \gamma} - f_\rho\|_{L^2}$};
+
+  % Approximation Error curve: gamma^r (increasing)
+  \draw[thick, blue!80!black, domain=0.2:5.5, samples=100] plot (\x, {0.7 * (\x)^0.7}) node[right, font=\small] {$\mathcal{A}(\gamma) \propto \gamma^r$};
+
+  % Sample Error curve: 1/(gamma * sqrt(m)) (decreasing)
+  \draw[thick, red!80!black, domain=0.4:5.5, samples=100] plot (\x, {0.9 / \x + 0.3}) node[right, font=\small] {$\mathcal{S}(\mathbf{z}, \gamma) \propto \frac{1}{\gamma \sqrt{m}}$};
+
+  % Total Error curve
+  \draw[very thick, purple!80!black, domain=0.4:5.2, samples=100] plot (\x, {0.7 * (\x)^0.7 + 0.9 / \x + 0.3});
+  \node[purple!80!black, font=\small] at (4.5, 3.6) {Total Error};
+
+  % Optimal gamma point
+  \coordinate (Opt) at (1.1, 1.88);
+  \filldraw[green!60!black] (Opt) circle (2.5pt);
+  \draw[dashed, green!60!black] (1.1, 0) -- (Opt) -- (0, 1.88);
+  \node[below, green!60!black, font=\small] at (1.1, 0) {$\gamma^* = m^{-\frac{1}{2r+1}}$};
+  \node[left, green!60!black, font=\small] at (0, 1.88) {$O(m^{-\frac{r}{2r+1}})$};
+
+\end{tikzpicture}
+\caption{\textbf{Bias-Variance Trade-Off and Minimax Optimal Rate.} The total generalization error is bounded by the sum of the monotonic approximation error $\mathcal{A}(\gamma) \le \gamma^r \|g\|_{L^2}$ and sample estimation error $\mathcal{S}(\mathbf{z}, \gamma) \le \frac{C_{\text{samp}}}{\sqrt{m} \gamma}$. Balancing both terms at $\gamma^*(m) = m^{-\frac{1}{2r+1}}$ achieves the optimal minimax rate $O(m^{-\frac{r}{2r+1}})$.}
+\label{fig:error_tradeoff}
+\end{figure}
 
 \begin{theorem}[Minimax Optimal Learning Rates \cite{caponnetto2007}]\label{thm:optimal_rate}
 Combining the approximation error bound $\mathcal{A}(\gamma) \le \gamma^r \|g\|_{L^2}$ with the concentration sample error bound $\mathcal{S}(\mathbf{z}, \gamma) \le \frac{C_{\text{samp}}}{\sqrt{m} \gamma}$, choosing the optimal regularizer decay schedule:
