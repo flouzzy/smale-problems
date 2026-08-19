@@ -33,7 +33,9 @@ theorem monomial_root_unique (a x : ℤ) (d : ℕ) (ha : a ≠ 0) (hd : d > 0) (
     cases mul_eq_zero.mp h with
     | inl h1 => contradiction
     | inr h2 => exact h2
-  exact pow_eq_zero hpow
+  by_contra hx
+  have hnz : x ^ d ≠ 0 := pow_ne_zero d hx
+  exact hnz hpow
 
 /-- Theorem: A linear binomial a * x + b = 0 with a ≠ 0 has at most one solution in ℚ -/
 theorem linear_root_unique (a b x1 x2 : ℚ) (ha : a ≠ 0) (h1 : a * x1 + b = 0) (h2 : a * x2 + b = 0) :
