@@ -33,7 +33,7 @@
 \newtheorem{example}[theorem]{Example}
 \newtheorem{remark}[theorem]{Remark}
 
-\renewcommand{\qedsymbol}{$\blacksquare$\ \textsf{\footnotesize Q.E.D.}}
+\renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
 
 \lstdefinelanguage{lean4}{
   keywords={import, def, theorem, lemma, by, Prop, Nat, open, section, Exists, fun, Set, Finset, Fin, List, use, refine, ring, omega, decide, positivity, subst, rcases, obtain, exact, have, rw, intro, noncomputable, variable, apply, by_cases, simp, constructor, dsimp, calc, norm_num, linarith, nlinarith},
@@ -438,35 +438,13 @@ theorem sample_error_decay_rate (m : ℝ) (hm : 1 ≤ m) :
   · exact div_le_one_of_le₀ h_sqrt_ge1 (le_of_lt h_sqrt_pos)
 \end{lstlisting}
 
-\section{Conclusion and Summary of Certified Proofs}
+\section{Concluding Remarks and Open Problems}
 
-The mathematical foundations of learning theory developed in this treatise provide an extensive, certified architecture for RKHS generalization. The table below details all core theorems whose demonstrations are fully completed and machine-checked:
+The mathematical foundations of learning theory established by Cucker and Smale \cite{cucker2002} provide a rigorous functional-analytic architecture for statistical machine learning. By framing the learning process over Reproducing Kernel Hilbert Spaces (RKHS) and compact integral operators $L_K$, the theory cleanly separates the approximation error $\mathcal{A}(\gamma)$ from the empirical sample error $\mathcal{S}(\mathbf{z}, \gamma)$, achieving the minimax optimal convergence rate $O(m^{-\frac{r}{2r+1}})$ under Hölder source conditions \cite{caponnetto2007}.
 
-\begin{table}[htbp]
-\centering
-\small
-\begin{tabular}{>{\bfseries}p{4.5cm} p{5.5cm} >{\centering\arraybackslash}p{2.5cm} >{\centering\arraybackslash}p{2.5cm}}
-\toprule
-Theorem / Result & Mathematical Scope & Proof Status & Formal Certificate \\
-\midrule
-Pythagorean Excess Risk (Theorem \ref{thm:excess_risk}) & Exact identity $\mathcal{E}(f) - \mathcal{E}(f_\rho) = \|f - f_\rho\|_{L^2}^2 \ge 0$ & \textbf{Completed} ($\blacksquare$) & \texttt{excess\_risk\_identity} \\
-\midrule
-Mercer Kernel Properties (Theorem \ref{thm:mercer_thm}) & Evaluation bound $|f(x)| \le C_K \|f\|_K$ and spectral trace decay & \textbf{Completed} ($\blacksquare$) & \texttt{rkhs\_pointwise\_bound} \\
-\midrule
-The Representer Theorem (Theorem \ref{thm:representer}) & Finite linear system solution $(\mathbf{K} + m \gamma \mathbf{I}_m) \boldsymbol{\alpha} = \mathbf{y}$ & \textbf{Completed} ($\blacksquare$) & \texttt{tikhonov\_penalty\_strict\_pos} \\
-\midrule
-Spectral Approximation Bound (Theorem \ref{thm:approx_error}) & Bound $\|f_\gamma - f_\rho\|_{L^2} \le \gamma^r \|g\|_{L^2}$ under source conditions & \textbf{Completed} ($\blacksquare$) & Literature verified \\
-\midrule
-Minimax Optimal Learning Rate (Theorem \ref{thm:optimal_rate}) & Optimal parameter $\gamma^*(m) = m^{-\frac{1}{2r+1}} \implies O(m^{-\frac{r}{2r+1}})$ & \textbf{Completed} ($\blacksquare$) & \texttt{sample\_error\_decay\_rate} \\
-\midrule
-Neural Tangent Kernel (Theorem \ref{thm:ntk}) & Infinite-width deep network convergence to RKHS kernel regression & \textbf{Completed} ($\blacksquare$) & Literature verified \\
-\bottomrule
-\end{tabular}
-\caption{\textbf{Executive Summary of Completed Mathematical Demonstrations.} Each result is fully demonstrated in the text, concluded with a Halmos tombstone ($\blacksquare$ \textsf{Q.E.D.}), and formal algebraic structures are certified in Lean 4.}
-\label{tab:learning_proof_summary}
-\end{table}
+In the contemporary context of deep overparameterized networks, the Neural Tangent Kernel (NTK) theory of Jacot et al. \cite{jacot2018} and the benign overfitting phenomena uncovered by Bartlett et al. \cite{bartlett2020} demonstrate that kernel-theoretic spectral principles continue to govern high-dimensional adaptive systems far beyond classical linear regimes.
 
-\noindent All machine-checked proofs are located in \texttt{test\_lean/Smale18LearningTheory.lean} and pass with zero warnings and zero axioms.
+The machine-checked formalization developed in Section \ref{sec:lean_formalization} verifies the foundational algebraic and analytical properties—including the Pythagorean excess risk identity, RKHS pointwise evaluation inequalities, and statistical sample error decay—in Lean 4 with zero axioms. Extending the formalization to infinite-dimensional Mercer trace class operators and Rademacher complexity bounds represents a fertile direction for computer-certified statistical learning theory.
 
 \begin{thebibliography}{99}
 \bibitem{smale2000} S. Smale, \textit{Mathematical problems for the next century}, Math. Intelligencer \textbf{20} (1998), 7--15; Mathematics: Frontiers and Perspectives, AMS (2000), 271--294.

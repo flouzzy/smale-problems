@@ -33,7 +33,7 @@
 \newtheorem{example}[theorem]{Example}
 \newtheorem{remark}[theorem]{Remark}
 
-\renewcommand{\qedsymbol}{$\blacksquare$\ \textsf{\footnotesize Q.E.D.}}
+\renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
 
 \lstdefinelanguage{lean4}{
   keywords={import, def, theorem, lemma, by, Prop, Nat, open, section, Exists, fun, Set, Finset, Fin, List, use, refine, ring, omega, decide, positivity, subst, rcases, obtain, exact, have, rw, intro, noncomputable, variable, apply, by_cases, simp, constructor, dsimp, calc, norm_num},
@@ -509,35 +509,13 @@ theorem tree_degree_growth (k : ℕ) :
   ring
 \end{lstlisting}
 
-\section{Conclusion and Summary of Certified Proofs}
+\section{Concluding Remarks and Open Problems}
 
-The analytical and algebraic results established throughout this monograph provide a comprehensive, machine-verified architecture for the Jacobian Conjecture and its reduction theorems. The table below provides an executive summary of all theorems whose mathematical demonstrations are fully completed and certified:
+The structural results synthesized in this monograph clarify the exact algebraic and combinatorial architecture governing polynomial automorphisms of $\mathbb{C}^n$. The reduction theorems of Bass--Connell--Wright \cite{bass1982} and Drużkowski \cite{druzkowski1983} establish that the entire difficulty of the Jacobian Conjecture is concentrated in the behavior of cubic homogeneous mappings $F(x) = x - H(x)$ with identically nilpotent Jacobian $J(x) = \operatorname{Jac}(H)(x)$.
 
-\begin{table}[htbp]
-\centering
-\small
-\begin{tabular}{>{\bfseries}p{4.5cm} p{5.5cm} >{\centering\arraybackslash}p{2.5cm} >{\centering\arraybackslash}p{2.5cm}}
-\toprule
-Theorem / Result & Mathematical Scope & Proof Status & Formal Certificate \\
-\midrule
-Dimension 1 Keller Classification (Theorem \ref{thm:dim1_keller}) & Bilateral affine invertibility $F(x) = ax+b \implies F^{-1}(y) = a^{-1}y - a^{-1}b$ & \textbf{Completed} ($\blacksquare$) & \texttt{affine\_1d\_inverse} \\
-\midrule
-Cubic Reduction Theorem (Theorem \ref{thm:cubic_reduction}) & Equivalence to cubic homogeneous maps $F(x) = x - H(x)$ with nilpotent Jacobian & \textbf{Completed} ($\blacksquare$) & \texttt{tr\_N\_zero} \\
-\midrule
-Drużkowski Factorization (Theorem \ref{thm:druzkowski_reduction}) & Reduction to cubic-linear mappings $F(x) = x - (Ax)^{*3}$ & \textbf{Completed} ($\blacksquare$) & \texttt{det\_I\_minus\_N} \\
-\midrule
-Tree Degree Growth (Theorem \ref{thm:degree_growth}) & Homogeneous expansion degree $\deg(\mathcal{D}_T(H)) = 2k + 1$ & \textbf{Completed} ($\blacksquare$) & \texttt{tree\_degree\_growth} \\
-\midrule
-Nilpotent Annihilation (Theorems \ref{thm:nilpotent_2}--\ref{thm:nilpotent_3}) & Series truncation at nilpotent index $r$, giving $F^{-1}(y) = y + H(y)$ for $n=2$ & \textbf{Completed} ($\blacksquare$) & \texttt{nilpotent\_index\_two\_inverse} \\
-\midrule
-Kontsevich--Dixmier Equivalence (Theorem \ref{thm:kb_equiv}) & Stable equivalence $\mathrm{JC}_{2n} \iff \mathrm{DC}_n$ with Weyl algebra endomorphisms & \textbf{Completed} ($\blacksquare$) & Literature verified \\
-\bottomrule
-\end{tabular}
-\caption{\textbf{Executive Summary of Completed and Certified Mathematical Demonstrations.} Each listed result has a complete, non-elliptical proof in the text terminated by a Halmos tombstone ($\blacksquare$ \textsf{Q.E.D.}) and is certified in Lean 4 with 0 axioms and 0 \texttt{sorry} placeholders.}
-\label{tab:proof_summary}
-\end{table}
+Through the Wright tree inversion expansion \cite{wright1982}, the formal inverse is structured by tree differential operators $\mathcal{D}_T(H)$. While nilpotency of index $r \le 3$ guarantees the finite polynomial termination of the inverse—yielding closed-form automorphisms in dimensions $n=2$ and $n=3$—the central obstacle for arbitrary dimensions $n \ge 4$ lies in proving that higher tree contractions $\mathcal{D}_T(H)(y)$ identically vanish for all trees beyond a certain depth.
 
-\noindent All machine-checked proofs are integrated in \texttt{test\_lean/Smale16JacobianConjecture.lean} and compile with zero errors under the Lean 4 kernel.
+The Kontsevich--Belov-Kanel equivalence \cite{belov2005} connects this Cremona geometry to the non-commutative representation theory of the Weyl algebra $A_n(\mathbb{C})$. The machine-checked formalization developed in Section \ref{sec:lean_formalization} verifies all foundational algebraic identities and low-dimensional inverse operators in Lean 4 with zero axioms. Extending the formalization to full tree combinatorics represents a natural next frontier for interactive theorem proving in affine algebraic geometry.
 
 \begin{thebibliography}{99}
 \bibitem{keller1939} O.-H. Keller, \textit{Ganze Cremona-Transformationen}, Monatsh. Math. Phys. \textbf{47} (1939), 299--306.
