@@ -10,7 +10,7 @@ This repository hosts a formal, rigorous, and pedagogical research program dedic
 
 Following the strict standards of [`AGENTS.md`](AGENTS.md) and [`ARCHITECTURE.md`](ARCHITECTURE.md), problems are classified into three directories:
 1. **`resolved/`**: Problems solved in the peer-reviewed mathematical literature by the worldwide scientific community (with historical references, monographs, and formal certifications).
-2. **`preprints/`**: Open problems for which we have authored an original mathematical monograph (style Terence Tao) with 100% Lean 4 machine-checked verification (0 `sorry`, 0 axioms) ready for submission.
+2. **`preprints/`**: Open problems for which we have authored an original mathematical monograph with 100% Lean 4 machine-checked verification (0 `sorry`, 0 axioms) ready for submission.
 3. **`inprogress/`**: Open problems under active investigation.
 
 ---
@@ -58,7 +58,7 @@ lake env lean Smale17PolynomialSolving.lean
 
 ## 📄 Preprints & Publications
 
-Preprints are written in LaTeX (style Terence Tao), compiled with `pdflatex`, and packaged with Zenodo metadata:
+Preprints are written in LaTeX, compiled with `pdflatex`, and packaged with Zenodo metadata:
 * **Smale #04**: [`preprints/04-Smale-Integer-Polynomial-Roots/`](preprints/04-Smale-Integer-Polynomial-Roots/)
 * **Smale #06**: [`preprints/06-Smale-Celestial-Equilibria/`](preprints/06-Smale-Celestial-Equilibria/)
 * **Smale #07**: [`preprints/07-Smale-Sphere-Point-Distribution/`](preprints/07-Smale-Sphere-Point-Distribution/)

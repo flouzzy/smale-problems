@@ -10,7 +10,7 @@ Ce dépôt héberge un programme de recherche mathématique formel, rigoureux et
 
 Conformément aux directives de [`AGENTS.md`](AGENTS.md) et [`ARCHITECTURE.fr.md`](ARCHITECTURE.fr.md), les travaux sont rigoureusement répartis en trois répertoires :
 1. **`resolved/`** : Problèmes résolus dans la littérature scientifique par la communauté mathématique mondiale (avec articles de référence, monographies complètes et vérifications formelles).
-2. **`preprints/`** : Problèmes de recherche ouverts pour lesquels nous publions une monographie originale (format Terence Tao / arXiv) accompagnée d'une certification Lean 4 à 100% (0 `sorry`, 0 axiome).
+2. **`preprints/`** : Problèmes de recherche ouverts pour lesquels nous publions une monographie originale accompagnée d'une certification Lean 4 à 100% (0 `sorry`, 0 axiome).
 3. **`inprogress/`** : Problèmes ouverts en cours d'investigation.
 
 ---
