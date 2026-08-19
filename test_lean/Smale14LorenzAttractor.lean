@@ -38,24 +38,24 @@ theorem lorenz_divergence_exact :
     -(10 : ℚ) - 1 - (8 / 3 : ℚ) = -41 / 3 ∧ (-41 / 3 : ℚ) < 0 := by
   constructor
   · ring
-  · decide
+  · norm_num
 
 /-- Theorem: Equilibrium condition for the Lorenz z-coordinate at the non-trivial fixed points -/
 theorem lorenz_equilibrium_z :
     (28 : ℚ) - 1 = 27 := by
-  decide
+  norm_num
 
 /-- Theorem: Equilibrium condition for x^2 at the non-trivial fixed points C_+ and C_-:
     x^2 = beta * (rho - 1) = (8/3) * 27 = 72 -/
 theorem lorenz_equilibrium_x_sq :
     (8 / 3 : ℚ) * 27 = 72 := by
-  decide
+  norm_num
 
 /-- Theorem: Trace of the Jacobian at the origin is exactly -11:
     Tr(J_0) = -sigma - 1 = -10 - 1 = -11 -/
 theorem lorenz_jacobian_origin_trace :
     -(10 : ℚ) - 1 = -11 := by
-  decide
+  norm_num
 
 /-- Theorem: Determinant of the upper 2x2 block of the Jacobian at the origin:
     det(J_2) = (-sigma) * (-1) - sigma * rho = 10 - 10 * 28 = -270 < 0,
@@ -64,4 +64,4 @@ theorem lorenz_jacobian_origin_saddle :
     (10 : ℚ) * 1 - (10 : ℚ) * 28 = -270 ∧ (-270 : ℚ) < 0 := by
   constructor
   · ring
-  · decide
+  · norm_num

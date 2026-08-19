@@ -42,22 +42,22 @@ theorem sphere_dist_sq (dot_prod : ℝ) :
 /-- Theorem: Squared distance for antipodal points on S^2 (dot product = -1): 2 - 2(-1) = 4 -/
 theorem sphere_antipodal_dist_sq :
     (2 : ℚ) - 2 * (-1) = 4 := by
-  decide
+  norm_num
 
 /-- Theorem: Squared distance for regular triangle on equator (dot product = -1/2): 2 - 2(-1/2) = 3 -/
 theorem sphere_equilateral_dist_sq :
     (2 : ℚ) - 2 * (-1 / 2) = 3 := by
-  decide
+  norm_num
 
 /-- Theorem: Squared distance for regular tetrahedron (dot product = -1/3): 2 - 2(-1/3) = 8/3 -/
 theorem sphere_tetrahedron_dist_sq :
     (2 : ℚ) - 2 * (-1 / 3) = 8 / 3 := by
-  decide
+  norm_num
 
 /-- Theorem: Squared distance for adjacent vertices of regular octahedron (dot product = 0): 2 - 2(0) = 2 -/
 theorem sphere_octahedron_dist_sq :
     (2 : ℚ) - 2 * 0 = 2 := by
-  decide
+  norm_num
 
 /-- Theorem: Pair count Nat.choose N 2 for N in {2, 3, 4, 6} -/
 theorem sphere_pair_counts :
