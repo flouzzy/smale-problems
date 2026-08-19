@@ -36,11 +36,11 @@ Conformément aux directives de [`AGENTS.md`](AGENTS.md) et [`ARCHITECTURE.fr.md
 | **15** | **Régularité des Équations de Navier-Stokes** | *Non résolu* (Problème du Millénaire #6). Existence globale et régularité $C^\infty$. | [`inprogress/15-Smale-Navier-Stokes/`](inprogress/15-Smale-Navier-Stokes/) |
 | **16** | **Conjecture du Jacobien** | *Non résolu / Actif*. Invertibilité des applications de Keller, réduction cubique de Bass-Connell-Wright et équivalence de Dixmier. | [Preprint](preprints/16-Smale-Jacobian-Conjecture/) / [`Smale16JacobianConjecture.lean`](test_lean/Smale16JacobianConjecture.lean) |
 | **17** | **Résolution de Systèmes Polynomiaux en Temps Moyen Polynomial** | **Résolu** par C. Beltrán & L. M. Pardo (2008), P. Bürgisser & F. Cucker (2011) et P. Lairez (2016). | [`resolved/17-Smale-Polynomial-Solving/`](resolved/17-Smale-Polynomial-Solving/) / [`Smale17PolynomialSolving.lean`](test_lean/Smale17PolynomialSolving.lean) |
-| **18** | **Limites de l'Intelligence et Théorie de l'Apprentissage** | *Non résolu*. Fondements mathématiques de l'apprentissage automatique, espaces RKHS (Cucker-Smale 2002). | [`inprogress/18-Smale-Limits-Of-Intelligence/`](inprogress/18-Smale-Limits-Of-Intelligence/) |
+| **18** | **Limites de l'Intelligence et Théorie de l'Apprentissage** | *Non résolu*. Fondements mathématiques de l'apprentissage automatique, espaces RKHS (Cucker-Smale 2002). | [Preprint](preprints/18-Smale-Limits-Of-Intelligence/) / [`Smale18LearningTheory.lean`](test_lean/Smale18LearningTheory.lean) |
 
 ---
 
-## 🛠️ Vérification Formelle 100% Lean 4
+## 🛠️ Vérification Formelle par Ordinateur (100% Lean 4)
 
 Tous les certificats formels Lean 4 sont situés dans `test_lean/` et vérifient avec **0 `sorry`**, **0 avertissement** et **0 axiome ad hoc** :
 
@@ -54,7 +54,10 @@ lake env lean Smale09LinearProgramming.lean
 lake env lean Smale14LorenzAttractor.lean
 lake env lean Smale16JacobianConjecture.lean
 lake env lean Smale17PolynomialSolving.lean
+lake env lean Smale18LearningTheory.lean
 ```
+
+---
 
 ## 📄 Prépublications & Preprints
 
@@ -64,3 +67,4 @@ lake env lean Smale17PolynomialSolving.lean
 * **Smale #07** : [`preprints/07-Smale-Sphere-Point-Distribution/`](preprints/07-Smale-Sphere-Point-Distribution/)
 * **Smale #09** : [`preprints/09-Smale-Linear-Programming/`](preprints/09-Smale-Linear-Programming/)
 * **Smale #16** : [`preprints/16-Smale-Jacobian-Conjecture/`](preprints/16-Smale-Jacobian-Conjecture/)
+* **Smale #18** : [`preprints/18-Smale-Limits-Of-Intelligence/`](preprints/18-Smale-Limits-Of-Intelligence/)

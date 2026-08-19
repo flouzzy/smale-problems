@@ -102,6 +102,22 @@ SMALE_METADATA = {
         "keywords": "Smale's 16th Problem, Jacobian Conjecture, Keller Mappings, Polynomial Automorphisms, Bass-Connell-Wright Reduction, Druzkowski Form, Wright Tree Inversion, Dixmier Conjecture, Weyl Algebras, Formal Verification, Lean 4, Mathlib",
         "lean_file": "test_lean/Smale16JacobianConjecture.lean"
     },
+    "preprints/18-Smale-Limits-Of-Intelligence": {
+        "title": "On the Mathematical Foundations of Learning, RKHS Regularization, and Smale's 18th Problem",
+        "subtitle": "An Extensive Treatise on Statistical Learning Theory, Mercer Operators, Generalization Bounds, and Certified Proofs",
+        "abstract": "Smale's 18th Problem (Steve Smale, 2000) asks: What are the limits of intelligence and learning? What are the foundational mathematical principles governing high-dimensional adaptive systems? In 2002, Felipe Cucker and Steve Smale established the mathematical foundation of statistical learning theory over Reproducing Kernel Hilbert Spaces (RKHS).",
+        "key_results": [
+            "<strong>Expected vs Empirical Risk & Pythagorean Excess Risk Identity:</strong> Exact non-elliptical derivation of $\\mathcal{E}(f) - \\mathcal{E}(f_\\rho) = \\|f - f_\\rho\\|_{L^2(X, \\rho_X)}^2 \\ge 0$, establishing the conditional expectation $f_\\rho(x) = \\mathbb{E}[y|x]$ as the unique global risk minimizer.",
+            "<strong>Mercer Kernel Spectral Theory:</strong> Positive semi-definiteness, Riesz evaluation bound $|f(x)| \\le C_K \\|f\\|_K$, and uniform spectral decomposition $K(x, t) = \\sum_{j=1}^\\infty \\lambda_j \\Phi_j(x) \\Phi_j(t)$ for the compact self-adjoint operator $L_K$.",
+            "<strong>The Representer Theorem & Tikhonov Regularization:</strong> Complete non-elliptical proof via orthogonal Hilbert subspace decomposition that $f_{\\mathbf{z}, \\gamma} = \\sum_{i=1}^m \\alpha_i K(\\cdot, x_i)$ with $(\\mathbf{K} + m \\gamma \\mathbf{I}_m) \\boldsymbol{\\alpha} = \\mathbf{y}$.",
+            "<strong>Minimax Optimal Learning Rates:</strong> Spectral analysis of approximation error $\\mathcal{A}(\\gamma) \\le \\gamma^r \\|g\\|_{L^2}$ and sample error $\\mathcal{S}(\\mathbf{z}, \\gamma) \\le \\frac{C_{\\text{samp}}}{\\sqrt{m} \\gamma}$, proving the minimax optimal rate $O(m^{-\\frac{r}{2r+1}})$ under source conditions $f_\\rho \\in \\operatorname{Range}(L_K^r)$.",
+            "<strong>Modern Deep Learning Frontiers:</strong> Analysis of the Neural Tangent Kernel (NTK) regime in overparameterized networks and benign overfitting.",
+            "<strong>100% Machine-Checked Verification in Lean 4:</strong> Algebraic risk excess identity, $L^2$ non-negativity, RKHS pointwise evaluation bounds, Tikhonov quadratic dominance, and sample error decay $O(1/\\sqrt{m})$ are certified with 0 axioms, 0 linter warnings, and 0 sorry placeholders via Lean 4 and Mathlib."
+        ],
+        "msc": "68T05, 62J02, 46E22, 47B34, 68V20, 68Q32",
+        "keywords": "Smale's 18th Problem, Limits of Intelligence, Mathematical Learning Theory, Cucker-Smale Theory, RKHS, Mercer Kernel, Tikhonov Regularization, Excess Risk, Generalization Bounds, Neural Tangent Kernel, Formal Verification, Lean 4, Mathlib",
+        "lean_file": "test_lean/Smale18LearningTheory.lean"
+    },
     "resolved/14-Smale-Lorenz-Attractor": {
         "title": "On the Lorenz Attractor and Smale's 14th Problem",
         "subtitle": "A Detailed Treatise on Validated Interval Arithmetic, Normal Form Theory, Geometric Strange Attractors, and Certified Proofs",

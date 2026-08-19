@@ -36,7 +36,7 @@ Following the strict standards of [`AGENTS.md`](AGENTS.md) and [`ARCHITECTURE.md
 | **15** | **Navier-Stokes Smoothness & Stability** | *Open* (Millennium Prize Problem #6). Global existence and regularity. | [`inprogress/15-Smale-Navier-Stokes/`](inprogress/15-Smale-Navier-Stokes/) |
 | **16** | **Jacobian Conjecture** | *Open / Active*. Invertibility of Keller polynomial maps, Bass-Connell-Wright cubic reduction, and Kontsevich-Belov-Kanel Dixmier equivalence. | [Preprint](preprints/16-Smale-Jacobian-Conjecture/) / [`Smale16JacobianConjecture.lean`](test_lean/Smale16JacobianConjecture.lean) |
 | **17** | **Polynomial Solving in Average Polynomial Time** | **Solved** by C. Beltrán & L. M. Pardo (2008), P. Bürgisser & F. Cucker (2011), and P. Lairez (2016). | [`resolved/17-Smale-Polynomial-Solving/`](resolved/17-Smale-Polynomial-Solving/) / [`Smale17PolynomialSolving.lean`](test_lean/Smale17PolynomialSolving.lean) |
-| **18** | **Limits of Intelligence & Learning Theory** | *Open*. Foundations of computational learning theory, RKHS optimization, and neural expressivity (Cucker-Smale 2002). | [`inprogress/18-Smale-Limits-Of-Intelligence/`](inprogress/18-Smale-Limits-Of-Intelligence/) |
+| **18** | **Limits of Intelligence & Learning Theory** | *Open*. Foundations of computational learning theory, RKHS optimization, and neural expressivity (Cucker-Smale 2002). | [Preprint](preprints/18-Smale-Limits-Of-Intelligence/) / [`Smale18LearningTheory.lean`](test_lean/Smale18LearningTheory.lean) |
 
 ---
 
@@ -54,6 +54,7 @@ lake env lean Smale09LinearProgramming.lean
 lake env lean Smale14LorenzAttractor.lean
 lake env lean Smale16JacobianConjecture.lean
 lake env lean Smale17PolynomialSolving.lean
+lake env lean Smale18LearningTheory.lean
 ```
 
 ---
@@ -67,3 +68,4 @@ Preprints are written in LaTeX, compiled with `pdflatex`, and packaged with Zeno
 * **Smale #07**: [`preprints/07-Smale-Sphere-Point-Distribution/`](preprints/07-Smale-Sphere-Point-Distribution/)
 * **Smale #09**: [`preprints/09-Smale-Linear-Programming/`](preprints/09-Smale-Linear-Programming/)
 * **Smale #16**: [`preprints/16-Smale-Jacobian-Conjecture/`](preprints/16-Smale-Jacobian-Conjecture/)
+* **Smale #18**: [`preprints/18-Smale-Limits-Of-Intelligence/`](preprints/18-Smale-Limits-Of-Intelligence/)

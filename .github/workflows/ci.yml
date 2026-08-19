@@ -40,6 +40,7 @@ jobs:
           lake env lean Smale14LorenzAttractor.lean
           lake env lean Smale16JacobianConjecture.lean
           lake env lean Smale17PolynomialSolving.lean
+          lake env lean Smale18LearningTheory.lean
 
   verify-latex:
     name: Verify LaTeX Preprints Compilation
