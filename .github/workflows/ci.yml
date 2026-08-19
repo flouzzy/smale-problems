@@ -32,6 +32,8 @@ jobs:
       - name: Verify Smale Formal Proofs
         run: |
           cd test_lean
+          lake env lean Smale04IntegerRoots.lean
+          lake env lean Smale06CelestialEquilibria.lean
           lake env lean Smale07SphereEnergy.lean
           lake env lean Smale14LorenzAttractor.lean
           lake env lean Smale17PolynomialSolving.lean
@@ -48,9 +50,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended lmodern
 
-      - name: Compile All Preprints
+      - name: Compile All Preprints and Resolved Monographs
         run: |
-          for dir in preprints/*/; do
+          for dir in preprints/*/ resolved/*/; do
             if [ -d "$dir" ]; then
               echo "Compiling in $dir..."
               cd "$dir"

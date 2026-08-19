@@ -9,7 +9,35 @@ and complete LaTeX metadata for Zenodo deposits across the Smale Problems reposi
 import os
 
 SMALE_METADATA = {
-    "07-Smale-Sphere-Point-Distribution": {
+    "preprints/04-Smale-Integer-Polynomial-Roots": {
+        "title": "On the Number of Integer Zeros of a Polynomial and Smale's 4th Problem",
+        "subtitle": "A Detailed Treatise on Straight-Line Arithmetic Complexity, Descartes' Sparse Bounds, Koiran's tau-Conjecture, and Certified Proofs",
+        "abstract": "Smale's 4th Problem (Steve Smale, 2000) asks whether the number of integer zeros Z(f) of a univariate polynomial f ∈ ℤ[x] computed by a straight-line program with k operations in {+, -, ×} can be bounded by a polynomial in k. In 2011, Pascal Koiran connected this problem to the core of algebraic complexity theory by showing that the real tau-conjecture implies VP ≠ VNP.",
+        "key_results": [
+            "<strong>Arithmetic Complexity Framework:</strong> Formal definition of straight-line programs (SLP) $\\tau(f)$ and contrast between exponential degree growth $2^k$ and sparse root counts.",
+            "<strong>Descartes and Lenstra Sparse Bounds:</strong> Rigorous review of Descartes' rule of signs ($2t-1$) and Lenstra's theorem on rational roots of $t$-sparse polynomials ($O(t^2 \\log t)$).",
+            "<strong>Koiran's $\\tau$-Conjecture and Separation:</strong> Complete pedagogical proof structure connecting real root bounds to Valiant's $\\text{VP} \\ne \\text{VNP}$ barrier.",
+            "<strong>100% Machine-Checked Verification in Lean 4:</strong> Monomial and linear root uniqueness, and straight-line power root identities ($x^{2^k}-1$) are certified with 0 axioms, 0 linter warnings, and 0 sorry placeholders via Lean 4 and Mathlib."
+        ],
+        "msc": "68Q17, 12D10, 11C08, 68V20, 14Q05",
+        "keywords": "Smale's 4th Problem, Integer Zeros, Straight-Line Program, Arithmetic Complexity, Koiran's tau-Conjecture, VP vs VNP, Descartes' Rule of Signs, Formal Verification, Lean 4, Mathlib",
+        "lean_file": "test_lean/Smale04IntegerRoots.lean"
+    },
+    "preprints/06-Smale-Celestial-Equilibria": {
+        "title": "On the Finiteness of Relative Equilibria in Celestial Mechanics and Smale's 6th Problem",
+        "subtitle": "A Detailed Treatise on Central Configurations, Moulton's Collinear Solutions, the Albouy-Kaloshin 5-Body Theorem, and Certified Proofs",
+        "abstract": "Smale's 6th Problem (Steve Smale, 2000) asks whether the number of relative equilibria (planar central configurations up to rotation and scaling) in the Newtonian N-body problem is finite for any choice of positive point masses. Central configurations govern periodic rigid-body motions and collision singularities. Proved for N=4 by Hampton-Moeckel (2006) and for N=5 by Albouy-Kaloshin (2012), the problem remains fundamentally open for N ≥ 6.",
+        "key_results": [
+            "<strong>Central Configuration Geometry:</strong> Foundational equations of planar relative equilibria and mutual distance coordinate reduction.",
+            "<strong>Classical Classifications:</strong> Exact derivations of Euler's 3 collinear configurations, Lagrange's equilateral triangle ($L_4, L_5$), and Moulton's $N!/2$ collinear central configurations.",
+            "<strong>Albouy-Kaloshin Theorem (2012):</strong> Deep pedagogical exposition of the algebraic geometry architecture proving finiteness for $N=5$ with generic masses.",
+            "<strong>100% Machine-Checked Verification in Lean 4:</strong> Moulton's permutation counts $N!/2$ for $N=3, 4, 5$, Lagrange frequency-distance balance $\\omega^2 d^3 = M$, and barycenter identities are certified with 0 axioms, 0 linter warnings, and 0 sorry placeholders via Lean 4 and Mathlib."
+        ],
+        "msc": "70F10, 70F15, 37N05, 68V20, 14Q15",
+        "keywords": "Smale's 6th Problem, Celestial Mechanics, N-Body Problem, Central Configurations, Relative Equilibria, Moulton's Theorem, Albouy-Kaloshin Theorem, Formal Verification, Lean 4, Mathlib",
+        "lean_file": "test_lean/Smale06CelestialEquilibria.lean"
+    },
+    "preprints/07-Smale-Sphere-Point-Distribution": {
         "title": "On the Minimal Logarithmic Energy on the 2-Sphere and Smale's 7th Problem",
         "subtitle": "A Detailed Treatise on the Thomson Problem, Platonic Polyhedral Configurations, Asymptotic Expansions, and Certified Proofs",
         "abstract": "Smale's 7th Problem (Steve Smale, 2000) asks for a polynomial-time algorithm to produce configurations of N points x_1, ..., x_N on the unit 2-sphere S^2 = {x ∈ ℝ^3 | ||x|| = 1} whose logarithmic interaction energy: E(x_1, ..., x_N) := ∑_{1 ≤ i < j ≤ N} ln(1 / ||x_i - x_j||) satisfies E(x_1, ..., x_N) - min E_N ≤ c ln N for a universal constant c > 0. This problem is intimately connected to the classical Thomson problem in mathematical physics, polynomial conditioning, and spherical designs.",
@@ -23,7 +51,7 @@ SMALE_METADATA = {
         "keywords": "Smale's 7th Problem, Thomson Problem, Logarithmic Energy, Spherical Potential Theory, Platonic Solids, Asymptotics, Formal Verification, Lean 4, Mathlib",
         "lean_file": "test_lean/Smale07SphereEnergy.lean"
     },
-    "14-Smale-Lorenz-Attractor": {
+    "resolved/14-Smale-Lorenz-Attractor": {
         "title": "On the Lorenz Attractor and Smale's 14th Problem",
         "subtitle": "A Detailed Treatise on Validated Interval Arithmetic, Normal Form Theory, Geometric Strange Attractors, and Certified Proofs",
         "abstract": "Smale's 14th Problem (Steve Smale, 2000) asks whether the classical Lorenz dynamical system (Edward Lorenz, 1963): dx/dt = σ(y - x), dy/dt = x(ρ - z) - y, dz/dt = xy - βz with standard parameter values σ = 10, ρ = 28, β = 8/3 admits a robust geometric strange attractor with hyperbolic structure. In 2002, Warwick Tucker solved Smale's 14th problem in the affirmative using rigorous computer-assisted interval arithmetic and normal form theory.",
@@ -37,7 +65,7 @@ SMALE_METADATA = {
         "keywords": "Smale's 14th Problem, Lorenz Attractor, Chaotic Dynamics, Strange Attractor, Validated Interval Arithmetic, Poincaré Maps, Formal Verification, Lean 4, Mathlib",
         "lean_file": "test_lean/Smale14LorenzAttractor.lean"
     },
-    "17-Smale-Polynomial-Solving": {
+    "resolved/17-Smale-Polynomial-Solving": {
         "title": "On Polynomial System Solving in Average Polynomial Time and Smale's 17th Problem",
         "subtitle": "A Detailed Treatise on Projective Newton Homotopies, Condition Metric Geometry, Beltrán-Pardo Randomization, and Pierre Lairez's Theorem",
         "abstract": "Smale's 17th Problem (Steve Smale, 2000) asks: 'Can a zero of n complex polynomial equations in n+1 homogeneous variables be found on average in polynomial time with respect to the input size N?' Between 2008 and 2016, this foundational challenge in numerical algebraic geometry was completely resolved through a sequence of breakthroughs by Carlos Beltrán, Luis Miguel Pardo, Felipe Cucker, Peter Bürgisser, and Pierre Lairez.",
@@ -140,16 +168,15 @@ Machine-checked with **0 axioms**, **0 linter warnings**, and **0 `sorry` placeh
 
 def main():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    preprints_dir = os.path.join(base_dir, "preprints")
     
     print("🚀 Generating Zenodo presentation.md files for Smale Problems...")
-    for folder, meta in SMALE_METADATA.items():
-        folder_path = os.path.join(preprints_dir, folder)
+    for rel_path, meta in SMALE_METADATA.items():
+        folder_path = os.path.join(base_dir, rel_path)
         if not os.path.exists(folder_path):
             os.makedirs(folder_path, exist_ok=True)
         
         md_file = os.path.join(folder_path, "presentation.md")
-        content = generate_presentation_md(folder, meta)
+        content = generate_presentation_md(rel_path, meta)
         with open(md_file, "w", encoding="utf-8") as f:
             f.write(content)
         print(f"✅ Generated: {md_file}")

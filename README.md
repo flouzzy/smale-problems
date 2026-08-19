@@ -6,28 +6,37 @@ This repository hosts a formal, rigorous, and pedagogical research program dedic
 
 ---
 
-## 🏛️ Comprehensive Inventory of Steve Smale's 18 Problems
+## 🏛️ Repository Organization & Tripartite Taxonomy
 
-| # | Problem Formulation | Status & Historical Milestones | Preprints & Lean 4 Certificates |
+Following the strict standards of [`AGENTS.md`](AGENTS.md) and [`ARCHITECTURE.md`](ARCHITECTURE.md), problems are classified into three directories:
+1. **`resolved/`**: Problems solved in the peer-reviewed mathematical literature by the worldwide scientific community (with historical references, monographs, and formal certifications).
+2. **`preprints/`**: Open problems for which we have authored an original mathematical monograph (style Terence Tao) with 100% Lean 4 machine-checked verification (0 `sorry`, 0 axioms) ready for submission.
+3. **`inprogress/`**: Open problems under active investigation.
+
+---
+
+## 📋 Comprehensive Inventory of Steve Smale's 18 Problems
+
+| # | Problem Formulation | Status & Historical Milestones | Preprints, Monographs & Lean 4 Certificates |
 | :---: | :--- | :--- | :--- |
-| **01** | **Riemann Hypothesis** | *Open* (Millennium Prize Problem #1). Equivalent to $\det(A_n) = O(n^{1/2+\varepsilon})$ and Li positivity $\lambda_n > 0$. | [Preprints](preprints/) / [Lean 4](test_lean/) |
-| **02** | **Poincaré Conjecture** | **Solved** by Grigori Perelman (2002–2003) via Ricci flow with surgery. | *Resolved* |
-| **03** | **P versus NP Problem** | *Open* (Millennium Prize Problem #3). Cook-Levin theorem. | *In Progress* |
-| **04** | **Integer Zeros of a Polynomial** | *Open*. Polynomial bound on integer roots vs arithmetic operations (Lenstra, Koiran $\tau$-conjecture). | *In Progress* |
-| **05** | **Height of Diophantine Curves** | *Open*. Effective Mordell theorem and height bounds for genus $g \ge 2$. | *In Progress* |
-| **06** | **Relative Equilibria in Celestial Mechanics** | **Partially Solved**. Finiteness proved for $N=5$ by A. Albouy and V. Kaloshin (2012). Open for $N \ge 6$. | *In Progress* |
+| **01** | **Riemann Hypothesis** | *Open* (Millennium Prize Problem #1). Conformal isometric spectra, Redheffer matrix, Li positivity criterion. | [RH Master Series](https://github.com/flouzzy/erdos-problems) |
+| **02** | **Poincaré Conjecture** | **Solved** by Grigori Perelman (2002–2003) via Ricci flow with surgery. | [`resolved/02-Smale-Poincare-Conjecture/`](resolved/02-Smale-Poincare-Conjecture/) |
+| **03** | **P versus NP Problem** | *Open* (Millennium Prize Problem #3). Cook-Levin theorem, BSS algebraic complexity. | [`inprogress/03-Smale-P-vs-NP/`](inprogress/03-Smale-P-vs-NP/) |
+| **04** | **Integer Zeros of a Polynomial** | *Open*. Arithmetic circuits $\tau(f)$, Descartes' sparse bounds, and Koiran's $\tau$-conjecture ($\text{VP} \ne \text{VNP}$). | [Preprint](preprints/04-Smale-Integer-Polynomial-Roots/) / [`Smale04IntegerRoots.lean`](test_lean/Smale04IntegerRoots.lean) |
+| **05** | **Height of Diophantine Curves** | *Open*. Effective Mordell theorem and height bounds for genus $g \ge 2$. | [`inprogress/05-Smale-Height-Diophantine-Curves/`](inprogress/05-Smale-Height-Diophantine-Curves/) |
+| **06** | **Relative Equilibria in Celestial Mechanics** | **Open for $N \ge 6$** (Solved for $N=5$ by A. Albouy & V. Kaloshin, 2012). Central configurations and Moulton's theorem. | [Preprint](preprints/06-Smale-Celestial-Equilibria/) / [`Smale06CelestialEquilibria.lean`](test_lean/Smale06CelestialEquilibria.lean) |
 | **07** | **Optimal Distribution of Points on $\mathbb{S}^2$** | *Open*. Minimal logarithmic energy $\min \sum \ln(1/\|x_i-x_j\|)$. Brauchart-Hardin-Saff (2012). | [Preprint](preprints/07-Smale-Sphere-Point-Distribution/) / [`Smale07SphereEnergy.lean`](test_lean/Smale07SphereEnergy.lean) |
-| **08** | **Dynamical Systems in Economics** | *Open*. Extended competitive equilibria and price adjustment dynamics (Smale 1976). | *In Progress* |
-| **09** | **Strongly Polynomial Linear Programming** | *Open*. Existence of strongly polynomial-time LP algorithms (Tardos, Megiddo). | *In Progress* |
-| **10** | **Closing Lemma in Discrete Dynamics** | *Open*. $C^r$ Closing Lemma for diffeomorphisms ($r \ge 2$). Continuous case solved by Charles Pugh (1967). | *In Progress* |
-| **11** | **Hyperbolicity of 1D Dynamics** | **Partially Solved**. Solved for real/complex polynomials and $C^2$ unimodal maps (Lyubich, Kozlovski-Shen-van Strien 2007). | *In Progress* |
-| **12** | **Centralizers of Diffeomorphisms** | **Solved in $C^1$** by Christian Bonatti, Sylvain Crovisier, and Amie Wilkinson (2009). | *Resolved* |
-| **13** | **Hilbert's 16th Problem on Limit Cycles** | *Open*. Uniform bound $H(d)$ on limit cycles of planar polynomial vector fields $\dot{x} = P, \dot{y} = Q$. | *In Progress* |
-| **14** | **Lorenz Attractor** | **Solved** by Warwick Tucker (1999–2002) using validated interval arithmetic and normal form theory. | [Preprint](preprints/14-Smale-Lorenz-Attractor/) / [`Smale14LorenzAttractor.lean`](test_lean/Smale14LorenzAttractor.lean) |
-| **15** | **Navier-Stokes Smoothness & Stability** | *Open* (Millennium Prize Problem #6). Global existence and regularity. | *In Progress* |
-| **16** | **Jacobian Conjecture** | *Open / Active*. Invertibility of polynomial maps with $\det Jac(F) \in \mathbb{C}^*$. | *In Progress* |
-| **17** | **Polynomial Solving in Average Polynomial Time** | **Solved** by C. Beltrán & L. M. Pardo (2008), P. Bürgisser & F. Cucker (2011), and P. Lairez (2016). | [Preprint](preprints/17-Smale-Polynomial-Solving/) / [`Smale17PolynomialSolving.lean`](test_lean/Smale17PolynomialSolving.lean) |
-| **18** | **Limits of Intelligence & Learning Theory** | *Open*. Foundations of computational learning theory, RKHS optimization, and neural expressivity (Cucker-Smale 2002). | *In Progress* |
+| **08** | **Dynamical Systems in Economics** | *Open*. Extended competitive equilibria and price adjustment dynamics (Smale 1976). | [`inprogress/08-Smale-Dynamics-Economics/`](inprogress/08-Smale-Dynamics-Economics/) |
+| **09** | **Strongly Polynomial Linear Programming** | *Open*. Existence of strongly polynomial-time LP algorithms (Tardos, Megiddo). | [`inprogress/09-Smale-Linear-Programming/`](inprogress/09-Smale-Linear-Programming/) |
+| **10** | **Closing Lemma in Discrete Dynamics** | *Open*. $C^r$ Closing Lemma for diffeomorphisms ($r \ge 2$). Continuous case solved by Charles Pugh (1967). | [`inprogress/10-Smale-Closing-Lemma/`](inprogress/10-Smale-Closing-Lemma/) |
+| **11** | **Hyperbolicity of 1D Dynamics** | **Partially Solved**. Solved for real/complex polynomials and $C^2$ unimodal maps (Lyubich, Kozlovski-Shen-van Strien 2007). | [`inprogress/11-Smale-Hyperbolic-1D-Dynamics/`](inprogress/11-Smale-Hyperbolic-1D-Dynamics/) |
+| **12** | **Centralizers of Diffeomorphisms** | **Solved in $C^1$** by Christian Bonatti, Sylvain Crovisier, and Amie Wilkinson (2009). | [`resolved/12-Smale-Diffeomorphism-Centralizers/`](resolved/12-Smale-Diffeomorphism-Centralizers/) |
+| **13** | **Hilbert's 16th Problem on Limit Cycles** | *Open*. Uniform bound $H(d)$ on limit cycles of planar polynomial vector fields $\dot{x} = P, \dot{y} = Q$. | [`inprogress/13-Smale-Hilbert-16th-Limit-Cycles/`](inprogress/13-Smale-Hilbert-16th-Limit-Cycles/) |
+| **14** | **Lorenz Attractor** | **Solved** by Warwick Tucker (1999–2002) using validated interval arithmetic and normal form theory. | [`resolved/14-Smale-Lorenz-Attractor/`](resolved/14-Smale-Lorenz-Attractor/) / [`Smale14LorenzAttractor.lean`](test_lean/Smale14LorenzAttractor.lean) |
+| **15** | **Navier-Stokes Smoothness & Stability** | *Open* (Millennium Prize Problem #6). Global existence and regularity. | [`inprogress/15-Smale-Navier-Stokes/`](inprogress/15-Smale-Navier-Stokes/) |
+| **16** | **Jacobian Conjecture** | *Open / Active*. Invertibility of polynomial maps with $\det Jac(F) \in \mathbb{C}^*$. | [`inprogress/16-Smale-Jacobian-Conjecture/`](inprogress/16-Smale-Jacobian-Conjecture/) |
+| **17** | **Polynomial Solving in Average Polynomial Time** | **Solved** by C. Beltrán & L. M. Pardo (2008), P. Bürgisser & F. Cucker (2011), and P. Lairez (2016). | [`resolved/17-Smale-Polynomial-Solving/`](resolved/17-Smale-Polynomial-Solving/) / [`Smale17PolynomialSolving.lean`](test_lean/Smale17PolynomialSolving.lean) |
+| **18** | **Limits of Intelligence & Learning Theory** | *Open*. Foundations of computational learning theory, RKHS optimization, and neural expressivity (Cucker-Smale 2002). | [`inprogress/18-Smale-Limits-Of-Intelligence/`](inprogress/18-Smale-Limits-Of-Intelligence/) |
 
 ---
 
@@ -37,6 +46,8 @@ All Lean 4 formal certificates are located in `test_lean/` and verify under the 
 
 ```bash
 cd test_lean
+lake env lean Smale04IntegerRoots.lean
+lake env lean Smale06CelestialEquilibria.lean
 lake env lean Smale07SphereEnergy.lean
 lake env lean Smale14LorenzAttractor.lean
 lake env lean Smale17PolynomialSolving.lean
@@ -46,7 +57,7 @@ lake env lean Smale17PolynomialSolving.lean
 
 ## 📄 Preprints & Publications
 
-Preprints are written in LaTeX, compiled with `pdflatex`, and packaged with Zenodo metadata:
+Preprints are written in LaTeX (style Terence Tao), compiled with `pdflatex`, and packaged with Zenodo metadata:
+* **Smale #04**: [`preprints/04-Smale-Integer-Polynomial-Roots/`](preprints/04-Smale-Integer-Polynomial-Roots/)
+* **Smale #06**: [`preprints/06-Smale-Celestial-Equilibria/`](preprints/06-Smale-Celestial-Equilibria/)
 * **Smale #07**: [`preprints/07-Smale-Sphere-Point-Distribution/`](preprints/07-Smale-Sphere-Point-Distribution/)
-* **Smale #14**: [`preprints/14-Smale-Lorenz-Attractor/`](preprints/14-Smale-Lorenz-Attractor/)
-* **Smale #17**: [`preprints/17-Smale-Polynomial-Solving/`](preprints/17-Smale-Polynomial-Solving/)
