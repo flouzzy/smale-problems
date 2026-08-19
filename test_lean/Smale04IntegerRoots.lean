@@ -59,3 +59,39 @@ theorem power_two_roots (k : ℕ) (hk : k ≥ 1) :
   have hsq : (-1 : ℤ) ^ 2 = 1 := by ring
   rw [hsq, one_pow]
   simp
+
+/-- Theorem: Positive real uniqueness for power equations x^d = y^d for x, y > 0 and d ≥ 1 -/
+theorem power_pos_injective (x y : ℝ) (d : ℕ) (hx : 0 < x) (hy : 0 < y) (hd : 1 ≤ d) (hpow : x ^ d = y ^ d) :
+    x = y := by
+  rcases lt_trichotomy x y with hlt | heq | hgt
+  · have hd_ne : d ≠ 0 := by omega
+    have hlt_pow : x ^ d < y ^ d := pow_lt_pow_left₀ hlt (le_of_lt hx) hd_ne
+    linarith
+  · exact heq
+  · have hd_ne : d ≠ 0 := by omega
+    have hgt_pow : y ^ d < x ^ d := pow_lt_pow_left₀ hgt (le_of_lt hy) hd_ne
+    linarith
+
+/-- Theorem: Step degree growth of repeated squaring circuit: 2 * (2^k) = 2^(k+1) -/
+theorem slp_squaring_degree_growth (k : ℕ) :
+    2 * 2 ^ k = 2 ^ (k + 1) := by
+  rw [pow_succ']
+
+/-- Theorem: Arithmetic circuit operation bound: 2^k ≥ k + 1 for all k ≥ 0 -/
+theorem circuit_exp_degree_dominance (k : ℕ) :
+    k + 1 ≤ 2 ^ k := by
+  induction k with
+  | zero => simp
+  | succ n ih =>
+    have h_one_le : 1 ≤ 2 ^ n := Nat.one_le_two_pow
+    calc n + 1 + 1 = (n + 1) + 1 := by ring
+      _ ≤ 2 ^ n + 1 := Nat.add_le_add_right ih 1
+      _ ≤ 2 ^ n + 2 ^ n := Nat.add_le_add_left h_one_le (2 ^ n)
+      _ = 2 * 2 ^ n := by ring
+      _ = 2 ^ (n + 1) := by rw [pow_succ']
+
+/-- Theorem: Descartes base case for a single positive monomial a * x^d > 0 for all x > 0 -/
+theorem monomial_strictly_positive (a x : ℝ) (d : ℕ) (ha : 0 < a) (hx : 0 < x) :
+    0 < a * x ^ d := by
+  have hpow : 0 < x ^ d := pow_pos hx d
+  exact mul_pos ha hpow

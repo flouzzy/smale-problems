@@ -59,10 +59,31 @@ theorem sphere_octahedron_dist_sq :
     (2 : ℚ) - 2 * 0 = 2 := by
   norm_num
 
-/-- Theorem: Pair count Nat.choose N 2 for N in {2, 3, 4, 6} -/
+/-- Theorem: Pair count Nat.choose N 2 for N in {2, 3, 4, 6, 8, 12} -/
 theorem sphere_pair_counts :
     Nat.choose 2 2 = 1 ∧
     Nat.choose 3 2 = 3 ∧
     Nat.choose 4 2 = 6 ∧
-    Nat.choose 6 2 = 15 := by
-  refine ⟨by decide, by decide, by decide, by decide⟩
+    Nat.choose 6 2 = 15 ∧
+    Nat.choose 8 2 = 28 ∧
+    Nat.choose 12 2 = 66 := by
+  refine ⟨by decide, by decide, by decide, by decide, by decide, by decide⟩
+
+/-- Theorem: Riesz kernel positivity for any positive pairwise distance and exponent s > 0 -/
+theorem riesz_kernel_pos (r s : ℝ) (hr : 0 < r) (hs : 0 < s) :
+    0 < r ^ (-s) := by
+  positivity
+
+/-- Theorem: Logarithmic energy leading quadratic coefficient relation -/
+theorem sphere_continuous_energy_constant :
+    (1 : ℝ) / 2 - Real.log 2 < 0 := by
+  have hlog : (1 : ℝ) / 2 < Real.log 2 := by
+    rw [Real.lt_log_iff_exp_lt (by norm_num : 0 < (2 : ℝ))]
+    have hexp : Real.exp (1 / 2) < 2 := by
+      have : (Real.exp (1 / 2)) ^ 2 = Real.exp 1 := by
+        rw [← Real.exp_nat_mul]
+        ring_nf
+      have h_e_lt_4 : Real.exp 1 < 4 := Real.exp_one_lt_d9.trans (by norm_num)
+      nlinarith [Real.exp_pos (1 / 2)]
+    exact hexp
+  linarith
