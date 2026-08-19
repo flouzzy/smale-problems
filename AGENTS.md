@@ -27,12 +27,13 @@ Ce document régit les règles d'architecture, de rangement et de rigueur scient
 
 ---
 
-## 4. Standards de Rédaction Académique & Rigueur Pédagogique
-- **Titres Mathématiques Directs et Épurés** : Le titre principal d'un article dans `preprints/` doit être rigoureusement centré sur le problème mathématique lui-même (ex. *"On the Jacobian Conjecture and Smale's 16th Problem"*).
-- **Interdiction de l'étiquetage méta de style** : Ne JAMAIS mentionner "style Terence Tao" ou "(style Terence Tao)" dans les titres, textes, READMEs ou communications. Le style rigoureux, didactique et non-elliptique doit être appliqué naturellement sans étiquetage superflu.
+## 4. Standards de Rédaction Académique & Soumission aux Comités de Lecture (Peer-Review)
+- **Format Monographique Approfondi (5 à 10+ pages)** : Tout article destiné à `preprints/` ou `resolved/` doit être rédigé sous la forme d'un traité scientifique complet et autonome (*self-contained*), avec table des matières, contexte historique, lemmes intermédiaires, théorèmes principaux et perspectives.
 - **Démonstrations Intégrales sans Ellipse** : Chaque lemme, corollaire et théorème doit être démontré étape par étape, sans raccourci ni omission calculatoire.
-- **Profondeur & Pédagogie Monographique** : Les manuscrits doivent adopter une structure riche et didactique (table des matières, contexte historique, exemples numériques détaillés, contre-exemples clés comme Pinchuk pour $\mathbb{R}^2$, et connexions contemporaines comme l'équivalence de Dixmier par Kontsevich-Belov-Kanel).
-- **Métadonnées de Publication (Zenodo / arXiv)** : Pour toute soumission externe, préparer des résumés structurés en HTML riche et Markdown avec équations LaTeX/MathJax, garanties de vérification formelle (0 `sorry`), classification MSC et références bibliographiques complètes (`scripts/generate_zenodo_descriptions.py`).
+- **Certification Formelle Lean 4 à l'Appui (0 `sorry`, 0 axiome)** : Toute soumission doit être accompagnée de son fichier `.lean` compilant avec succès via le noyau Lean 4 et Mathlib, fournissant au comité d'évaluation une preuve informatique infaillible et reproductible.
+- **Titres Mathématiques Directs et Épurés** : Le titre principal d'un article doit être rigoureusement centré sur le problème ou la conjecture (ex. *"On the Jacobian Conjecture and the Nilpotent Tree Inversion of Keller Mappings"*).
+- **Interdiction de l'étiquetage méta de style** : Ne JAMAIS mentionner "style Terence Tao" ou "(style Terence Tao)" dans les titres, textes, READMEs ou communications. Le style rigoureux, didactique et non-elliptique doit être appliqué naturellement sans étiquetage superflu.
+- **Préparation Complète pour l'Évaluation par les Pairs** : Fournir systématiquement le PDF compilé via `pdflatex`, le code source `.tex`, le fichier de test `.lean`, ainsi que les métadonnées de dépôt (`presentation.md` avec classification MSC 2020 et abstract bilingue/anglais standard).
 
 ---
 
