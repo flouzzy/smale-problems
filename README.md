@@ -23,7 +23,7 @@ Following the strict standards of [`AGENTS.md`](AGENTS.md) and [`ARCHITECTURE.md
 | **02** | **Poincaré Conjecture** | **Solved** by Grigori Perelman (2002–2003) via Ricci flow with surgery. | [`resolved/02-Smale-Poincare-Conjecture/`](resolved/02-Smale-Poincare-Conjecture/) |
 | **03** | **P versus NP Problem** | *Open* (Millennium Prize Problem #3). Cook-Levin theorem, BSS algebraic complexity. | [`inprogress/03-Smale-P-vs-NP/`](inprogress/03-Smale-P-vs-NP/) |
 | **04** | **Integer Zeros of a Polynomial** | *Open*. Arithmetic circuits $\tau(f)$, Descartes' sparse bounds, and Koiran's $\tau$-conjecture ($\text{VP} \ne \text{VNP}$). | [Preprint](preprints/04-Smale-Integer-Polynomial-Roots/) / [`Smale04IntegerRoots.lean`](test_lean/Smale04IntegerRoots.lean) |
-| **05** | **Height of Diophantine Curves** | *Open*. Effective Mordell theorem and height bounds for genus $g \ge 2$. | [`inprogress/05-Smale-Height-Diophantine-Curves/`](inprogress/05-Smale-Height-Diophantine-Curves/) |
+| **05** | **Height of Diophantine Curves** | *Open*. Effective Mordell theorem and height bounds for genus $g \ge 2$ (Elkies, Chabauty-Coleman). | [Preprint](preprints/05-Smale-Height-Diophantine-Curves/) / [`Smale05DiophantineHeights.lean`](test_lean/Smale05DiophantineHeights.lean) |
 | **06** | **Relative Equilibria in Celestial Mechanics** | **Open for $N \ge 6$** (Solved for $N=5$ by A. Albouy & V. Kaloshin, 2012). Central configurations and Moulton's theorem. | [Preprint](preprints/06-Smale-Celestial-Equilibria/) / [`Smale06CelestialEquilibria.lean`](test_lean/Smale06CelestialEquilibria.lean) |
 | **07** | **Optimal Distribution of Points on $\mathbb{S}^2$** | *Open*. Minimal logarithmic energy $\min \sum \ln(1/\|x_i-x_j\|)$. Brauchart-Hardin-Saff (2012). | [Preprint](preprints/07-Smale-Sphere-Point-Distribution/) / [`Smale07SphereEnergy.lean`](test_lean/Smale07SphereEnergy.lean) |
 | **08** | **Dynamical Systems in Economics** | *Open*. Extended competitive equilibria and price adjustment dynamics (Smale 1976). | [`inprogress/08-Smale-Dynamics-Economics/`](inprogress/08-Smale-Dynamics-Economics/) |
@@ -47,6 +47,7 @@ All Lean 4 formal certificates are located in `test_lean/` and verify under the 
 ```bash
 cd test_lean
 lake env lean Smale04IntegerRoots.lean
+lake env lean Smale05DiophantineHeights.lean
 lake env lean Smale06CelestialEquilibria.lean
 lake env lean Smale07SphereEnergy.lean
 lake env lean Smale09LinearProgramming.lean
@@ -61,6 +62,7 @@ lake env lean Smale17PolynomialSolving.lean
 
 Preprints are written in LaTeX, compiled with `pdflatex`, and packaged with Zenodo metadata:
 * **Smale #04**: [`preprints/04-Smale-Integer-Polynomial-Roots/`](preprints/04-Smale-Integer-Polynomial-Roots/)
+* **Smale #05**: [`preprints/05-Smale-Height-Diophantine-Curves/`](preprints/05-Smale-Height-Diophantine-Curves/)
 * **Smale #06**: [`preprints/06-Smale-Celestial-Equilibria/`](preprints/06-Smale-Celestial-Equilibria/)
 * **Smale #07**: [`preprints/07-Smale-Sphere-Point-Distribution/`](preprints/07-Smale-Sphere-Point-Distribution/)
 * **Smale #09**: [`preprints/09-Smale-Linear-Programming/`](preprints/09-Smale-Linear-Programming/)
