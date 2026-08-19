@@ -1,0 +1,27 @@
+# TeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+texput.log
+scratch/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Lean / Lake build artifacts
+.lake/
+**/.lake/
+test_lean/.lake/
+test_lean/TestLeanPkg/
+*.olean
+*.ilean
+*.c
+
+# OS & Temp
+.DS_Store
+*.swp
