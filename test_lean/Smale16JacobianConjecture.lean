@@ -54,7 +54,7 @@ theorem jacobian_dim_one_inverse (K : Type*) [Field K] (a b x y : K) (ha : a ≠
 
 /-- Theorem 2 (Nilpotent Index 2 Inversion):
 If H is an endomorphism satisfying H ∘ H = 0, then (I - H) is invertible with inverse (I + H). -/
-theorem nilpotent_index_two_inverse (R : Type*) [Ring R] (H : R) (hH : H * H = 0) :
+theorem nilpotent_index_two_inverse (R : Type*) [CommRing R] (H : R) (hH : H * H = 0) :
     (1 - H) * (1 + H) = 1 ∧ (1 + H) * (1 - H) = 1 := by
   constructor
   · calc (1 - H) * (1 + H) = 1 + H - H - H * H := by ring
@@ -68,7 +68,7 @@ theorem nilpotent_index_two_inverse (R : Type*) [Ring R] (H : R) (hH : H * H = 0
 
 /-- Theorem 3 (Nilpotent Index 3 / Yagzhev-Bass Inversion Formula):
 If H satisfies H * H * H = 0, then (1 - H) * (1 + H + H^2) = 1. -/
-theorem nilpotent_index_three_inverse (R : Type*) [Ring R] (H : R) (hH : H ^ 3 = 0) :
+theorem nilpotent_index_three_inverse (R : Type*) [CommRing R] (H : R) (hH : H ^ 3 = 0) :
     (1 - H) * (1 + H + H ^ 2) = 1 := by
   calc (1 - H) * (1 + H + H ^ 2)
     _ = 1 + H + H ^ 2 - H - H ^ 2 - H * H ^ 2 := by ring

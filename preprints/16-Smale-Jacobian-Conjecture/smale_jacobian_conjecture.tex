@@ -233,7 +233,7 @@ theorem jacobian_dim_one_inverse (K : Type*) [Field K] (a b x y : K) (ha : a ≠
       _ = 1 * y - 1 * b + b := by rw [mul_inv_cancel_0 ha]
       _ = y := by ring
 
-theorem nilpotent_index_two_inverse (R : Type*) [Ring R] (H : R) (hH : H * H = 0) :
+theorem nilpotent_index_two_inverse (R : Type*) [CommRing R] (H : R) (hH : H * H = 0) :
     (1 - H) * (1 + H) = 1 ∧ (1 + H) * (1 - H) = 1 := by
   constructor
   · calc (1 - H) * (1 + H) = 1 + H - H - H * H := by ring
@@ -245,7 +245,7 @@ theorem nilpotent_index_two_inverse (R : Type*) [Ring R] (H : R) (hH : H * H = 0
       _ = 1 - 0 := by rw [hH]
       _ = 1 := by ring
 
-theorem nilpotent_index_three_inverse (R : Type*) [Ring R] (H : R) (hH : H ^ 3 = 0) :
+theorem nilpotent_index_three_inverse (R : Type*) [CommRing R] (H : R) (hH : H ^ 3 = 0) :
     (1 - H) * (1 + H + H ^ 2) = 1 := by
   calc (1 - H) * (1 + H + H ^ 2)
     _ = 1 + H + H ^ 2 - H - H ^ 2 - H * H ^ 2 := by ring
