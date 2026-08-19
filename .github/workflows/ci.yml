@@ -36,6 +36,7 @@ jobs:
           lake env lean Smale06CelestialEquilibria.lean
           lake env lean Smale07SphereEnergy.lean
           lake env lean Smale14LorenzAttractor.lean
+          lake env lean Smale16JacobianConjecture.lean
           lake env lean Smale17PolynomialSolving.lean
 
   verify-latex:

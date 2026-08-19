@@ -34,7 +34,7 @@ Following the strict standards of [`AGENTS.md`](AGENTS.md) and [`ARCHITECTURE.md
 | **13** | **Hilbert's 16th Problem on Limit Cycles** | *Open*. Uniform bound $H(d)$ on limit cycles of planar polynomial vector fields $\dot{x} = P, \dot{y} = Q$. | [`inprogress/13-Smale-Hilbert-16th-Limit-Cycles/`](inprogress/13-Smale-Hilbert-16th-Limit-Cycles/) |
 | **14** | **Lorenz Attractor** | **Solved** by Warwick Tucker (1999–2002) using validated interval arithmetic and normal form theory. | [`resolved/14-Smale-Lorenz-Attractor/`](resolved/14-Smale-Lorenz-Attractor/) / [`Smale14LorenzAttractor.lean`](test_lean/Smale14LorenzAttractor.lean) |
 | **15** | **Navier-Stokes Smoothness & Stability** | *Open* (Millennium Prize Problem #6). Global existence and regularity. | [`inprogress/15-Smale-Navier-Stokes/`](inprogress/15-Smale-Navier-Stokes/) |
-| **16** | **Jacobian Conjecture** | *Open / Active*. Invertibility of polynomial maps with $\det Jac(F) \in \mathbb{C}^*$. | [`inprogress/16-Smale-Jacobian-Conjecture/`](inprogress/16-Smale-Jacobian-Conjecture/) |
+| **16** | **Jacobian Conjecture** | *Open / Active*. Invertibility of Keller polynomial maps, Bass-Connell-Wright cubic reduction, and Kontsevich-Belov-Kanel Dixmier equivalence. | [Preprint](preprints/16-Smale-Jacobian-Conjecture/) / [`Smale16JacobianConjecture.lean`](test_lean/Smale16JacobianConjecture.lean) |
 | **17** | **Polynomial Solving in Average Polynomial Time** | **Solved** by C. Beltrán & L. M. Pardo (2008), P. Bürgisser & F. Cucker (2011), and P. Lairez (2016). | [`resolved/17-Smale-Polynomial-Solving/`](resolved/17-Smale-Polynomial-Solving/) / [`Smale17PolynomialSolving.lean`](test_lean/Smale17PolynomialSolving.lean) |
 | **18** | **Limits of Intelligence & Learning Theory** | *Open*. Foundations of computational learning theory, RKHS optimization, and neural expressivity (Cucker-Smale 2002). | [`inprogress/18-Smale-Limits-Of-Intelligence/`](inprogress/18-Smale-Limits-Of-Intelligence/) |
 
@@ -50,6 +50,7 @@ lake env lean Smale04IntegerRoots.lean
 lake env lean Smale06CelestialEquilibria.lean
 lake env lean Smale07SphereEnergy.lean
 lake env lean Smale14LorenzAttractor.lean
+lake env lean Smale16JacobianConjecture.lean
 lake env lean Smale17PolynomialSolving.lean
 ```
 
@@ -61,3 +62,4 @@ Preprints are written in LaTeX (style Terence Tao), compiled with `pdflatex`, an
 * **Smale #04**: [`preprints/04-Smale-Integer-Polynomial-Roots/`](preprints/04-Smale-Integer-Polynomial-Roots/)
 * **Smale #06**: [`preprints/06-Smale-Celestial-Equilibria/`](preprints/06-Smale-Celestial-Equilibria/)
 * **Smale #07**: [`preprints/07-Smale-Sphere-Point-Distribution/`](preprints/07-Smale-Sphere-Point-Distribution/)
+* **Smale #16**: [`preprints/16-Smale-Jacobian-Conjecture/`](preprints/16-Smale-Jacobian-Conjecture/)

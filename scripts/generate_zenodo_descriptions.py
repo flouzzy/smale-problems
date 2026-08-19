@@ -51,6 +51,21 @@ SMALE_METADATA = {
         "keywords": "Smale's 7th Problem, Thomson Problem, Logarithmic Energy, Spherical Potential Theory, Platonic Solids, Asymptotics, Formal Verification, Lean 4, Mathlib",
         "lean_file": "test_lean/Smale07SphereEnergy.lean"
     },
+    "preprints/16-Smale-Jacobian-Conjecture": {
+        "title": "On the Jacobian Conjecture and Smale's 16th Problem",
+        "subtitle": "A Detailed Treatise on Polynomial Automorphisms, Nilpotent Reductions, the Dixmier Equivalence, and Certified Proofs",
+        "abstract": "Smale's 16th Problem (Steve Smale, 2000) features the celebrated Jacobian Conjecture (Ott-Heinrich Keller, 1939): if a polynomial mapping F = (F_1, ..., F_n): ℂ^n → ℂ^n has a non-zero constant Jacobian determinant det Jac(F)(x) ∈ ℂ^* for all x ∈ ℂ^n, is F a polynomial automorphism of ℂ^n (i.e. bijective with polynomial inverse)?",
+        "key_results": [
+            "<strong>Keller Maps and Low-Dimension Classification:</strong> Full non-elliptical proof that all dimension 1 Keller maps are affine linear automorphisms $F(x) = ax + b$ with exact polynomial inverse $G(y) = a^{-1}y - a^{-1}b$. Analysis of Pinchuk's counterexample to the Real Jacobian Conjecture.",
+            "<strong>Bass-Connell-Wright & Yagzhev Cubic Reduction:</strong> Non-elliptical reduction theorem showing that the Jacobian Conjecture in all dimensions is equivalent to cubic homogeneous maps $F(x) = x - H(x)$ with nilpotent Jacobian matrix.",
+            "<strong>Operator Inversion & Drużkowski Form:</strong> Explicit Neumann series inverses for nilpotent indices 2 and 3, and factorization into cubic-linear maps $(Ax)^{*3}$.",
+            "<strong>Kontsevich--Belov-Kanel Equivalence:</strong> Detailed pedagogical review of the stable equivalence between the Jacobian Conjecture in dimension $2n$ and the Dixmier Conjecture on the $n$-th Weyl algebra $A_n(\\mathbb{C})$.",
+            "<strong>100% Machine-Checked Verification in Lean 4:</strong> Dimension 1 affine bilateral invertibility, ring-theoretic nilpotent operator inversion identities for indices 2 and 3, and matrix trace identities are certified with 0 axioms, 0 linter warnings, and 0 sorry placeholders via Lean 4 and Mathlib."
+        ],
+        "msc": "14R15, 14E07, 16S32, 68V20, 13B25",
+        "keywords": "Smale's 16th Problem, Jacobian Conjecture, Keller Mappings, Polynomial Automorphisms, Bass-Connell-Wright Reduction, Druzkowski Form, Dixmier Conjecture, Weyl Algebras, Formal Verification, Lean 4, Mathlib",
+        "lean_file": "test_lean/Smale16JacobianConjecture.lean"
+    },
     "resolved/14-Smale-Lorenz-Attractor": {
         "title": "On the Lorenz Attractor and Smale's 14th Problem",
         "subtitle": "A Detailed Treatise on Validated Interval Arithmetic, Normal Form Theory, Geometric Strange Attractors, and Certified Proofs",

@@ -34,7 +34,7 @@ Conformément aux directives de [`AGENTS.md`](AGENTS.md) et [`ARCHITECTURE.fr.md
 | **13** | **Seizième Problème de Hilbert sur les Cycles Limites** | *Non résolu*. Borne uniforme $H(d)$ sur les cycles limites de champs polynomiaux plans $\dot{x} = P, \dot{y} = Q$. | [`inprogress/13-Smale-Hilbert-16th-Limit-Cycles/`](inprogress/13-Smale-Hilbert-16th-Limit-Cycles/) |
 | **14** | **Attracteur de Lorenz** | **Démontré** par Warwick Tucker (1999–2002) par arithmétique d'intervalles validée et formes normales. | [`resolved/14-Smale-Lorenz-Attractor/`](resolved/14-Smale-Lorenz-Attractor/) / [`Smale14LorenzAttractor.lean`](test_lean/Smale14LorenzAttractor.lean) |
 | **15** | **Équations de Navier-Stokes** | *Non résolu* (6e Problème du Millénaire). Existence globale et régularité. | [`inprogress/15-Smale-Navier-Stokes/`](inprogress/15-Smale-Navier-Stokes/) |
-| **16** | **Conjecture du Jacobien** | *Non résolu / Actif*. Inversibilité des morphismes polynomiaux à jacobien constant non nul $\det Jac(F) \in \mathbb{C}^*$. | [`inprogress/16-Smale-Jacobian-Conjecture/`](inprogress/16-Smale-Jacobian-Conjecture/) |
+| **16** | **Conjecture du Jacobien** | *Non résolu / Actif*. Inversibilité des morphismes de Keller, réduction cubique de Bass-Connell-Wright et équivalence de Dixmier par Kontsevich-Belov-Kanel. | [Preprint](preprints/16-Smale-Jacobian-Conjecture/) / [`Smale16JacobianConjecture.lean`](test_lean/Smale16JacobianConjecture.lean) |
 | **17** | **Résolution Polynomiale en Temps Moyen Polynomial** | **Démontré** par C. Beltrán & L. M. Pardo (2008), P. Bürgisser & F. Cucker (2011) et P. Lairez (2016). | [`resolved/17-Smale-Polynomial-Solving/`](resolved/17-Smale-Polynomial-Solving/) / [`Smale17PolynomialSolving.lean`](test_lean/Smale17PolynomialSolving.lean) |
 | **18** | **Limites de l'Intelligence & Théorie de l'Apprentissage** | *Non résolu*. Fondements computationnels de l'apprentissage statistique, espaces RKHS et expressivité neuronale (Cucker-Smale 2002). | [`inprogress/18-Smale-Limits-Of-Intelligence/`](inprogress/18-Smale-Limits-Of-Intelligence/) |
 
@@ -50,5 +50,6 @@ lake env lean Smale04IntegerRoots.lean
 lake env lean Smale06CelestialEquilibria.lean
 lake env lean Smale07SphereEnergy.lean
 lake env lean Smale14LorenzAttractor.lean
+lake env lean Smale16JacobianConjecture.lean
 lake env lean Smale17PolynomialSolving.lean
 ```
