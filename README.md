@@ -27,7 +27,7 @@ Following the strict standards of [`AGENTS.md`](AGENTS.md) and [`ARCHITECTURE.md
 | **06** | **Relative Equilibria in Celestial Mechanics** | **Open for $N \ge 6$** (Solved for $N=5$ by A. Albouy & V. Kaloshin, 2012). Central configurations and Moulton's theorem. | [Preprint](preprints/06-Smale-Celestial-Equilibria/) / [`Smale06CelestialEquilibria.lean`](test_lean/Smale06CelestialEquilibria.lean) |
 | **07** | **Optimal Distribution of Points on $\mathbb{S}^2$** | *Open*. Minimal logarithmic energy $\min \sum \ln(1/\|x_i-x_j\|)$. Brauchart-Hardin-Saff (2012). | [Preprint](preprints/07-Smale-Sphere-Point-Distribution/) / [`Smale07SphereEnergy.lean`](test_lean/Smale07SphereEnergy.lean) |
 | **08** | **Dynamical Systems in Economics** | *Open*. Extended competitive equilibria and price adjustment dynamics (Smale 1976). | [`inprogress/08-Smale-Dynamics-Economics/`](inprogress/08-Smale-Dynamics-Economics/) |
-| **09** | **Strongly Polynomial Linear Programming** | *Open*. Existence of strongly polynomial-time LP algorithms (Tardos, Megiddo). | [`inprogress/09-Smale-Linear-Programming/`](inprogress/09-Smale-Linear-Programming/) |
+| **09** | **Strongly Polynomial Linear Programming** | *Open*. Existence of strongly polynomial-time LP algorithms (Tardos, Megiddo, Vavasis-Ye). | [Preprint](preprints/09-Smale-Linear-Programming/) / [`Smale09LinearProgramming.lean`](test_lean/Smale09LinearProgramming.lean) |
 | **10** | **Closing Lemma in Discrete Dynamics** | *Open*. $C^r$ Closing Lemma for diffeomorphisms ($r \ge 2$). Continuous case solved by Charles Pugh (1967). | [`inprogress/10-Smale-Closing-Lemma/`](inprogress/10-Smale-Closing-Lemma/) |
 | **11** | **Hyperbolicity of 1D Dynamics** | **Partially Solved**. Solved for real/complex polynomials and $C^2$ unimodal maps (Lyubich, Kozlovski-Shen-van Strien 2007). | [`inprogress/11-Smale-Hyperbolic-1D-Dynamics/`](inprogress/11-Smale-Hyperbolic-1D-Dynamics/) |
 | **12** | **Centralizers of Diffeomorphisms** | **Solved in $C^1$** by Christian Bonatti, Sylvain Crovisier, and Amie Wilkinson (2009). | [`resolved/12-Smale-Diffeomorphism-Centralizers/`](resolved/12-Smale-Diffeomorphism-Centralizers/) |
@@ -49,6 +49,7 @@ cd test_lean
 lake env lean Smale04IntegerRoots.lean
 lake env lean Smale06CelestialEquilibria.lean
 lake env lean Smale07SphereEnergy.lean
+lake env lean Smale09LinearProgramming.lean
 lake env lean Smale14LorenzAttractor.lean
 lake env lean Smale16JacobianConjecture.lean
 lake env lean Smale17PolynomialSolving.lean
@@ -62,4 +63,5 @@ Preprints are written in LaTeX, compiled with `pdflatex`, and packaged with Zeno
 * **Smale #04**: [`preprints/04-Smale-Integer-Polynomial-Roots/`](preprints/04-Smale-Integer-Polynomial-Roots/)
 * **Smale #06**: [`preprints/06-Smale-Celestial-Equilibria/`](preprints/06-Smale-Celestial-Equilibria/)
 * **Smale #07**: [`preprints/07-Smale-Sphere-Point-Distribution/`](preprints/07-Smale-Sphere-Point-Distribution/)
+* **Smale #09**: [`preprints/09-Smale-Linear-Programming/`](preprints/09-Smale-Linear-Programming/)
 * **Smale #16**: [`preprints/16-Smale-Jacobian-Conjecture/`](preprints/16-Smale-Jacobian-Conjecture/)

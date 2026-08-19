@@ -27,7 +27,7 @@ Conformément aux directives de [`AGENTS.md`](AGENTS.md) et [`ARCHITECTURE.fr.md
 | **06** | **Équilibres Relatifs en Mécanique Céleste** | **Ouvert pour $N \ge 6$** (Démontré pour $N=5$ par A. Albouy & V. Kaloshin, 2012). Configurations centrales et théorème de Moulton. | [Preprint](preprints/06-Smale-Celestial-Equilibria/) / [`Smale06CelestialEquilibria.lean`](test_lean/Smale06CelestialEquilibria.lean) |
 | **07** | **Distribution Optimale de Points sur $\mathbb{S}^2$** | *Non résolu*. Énergie logarithmique minimale $\min \sum \ln(1/\|x_i-x_j\|)$. Brauchart-Hardin-Saff (2012). | [Preprint](preprints/07-Smale-Sphere-Point-Distribution/) / [`Smale07SphereEnergy.lean`](test_lean/Smale07SphereEnergy.lean) |
 | **08** | **Systèmes Dynamiques en Économie** | *Non résolu*. Équilibres concurrentiels étendus et ajustement des prix (Smale 1976). | [`inprogress/08-Smale-Dynamics-Economics/`](inprogress/08-Smale-Dynamics-Economics/) |
-| **09** | **Optimisation Linéaire Fortement Polynomiale** | *Non résolu*. Existence d'un algorithme fortement polynomial pour la programmation linéaire (Tardos, Megiddo). | [`inprogress/09-Smale-Linear-Programming/`](inprogress/09-Smale-Linear-Programming/) |
+| **09** | **Optimisation Linéaire Fortement Polynomiale** | *Non résolu*. Existence d'un algorithme fortement polynomial pour la programmation linéaire (Tardos, Megiddo). | [Preprint](preprints/09-Smale-Linear-Programming/) / [`Smale09LinearProgramming.lean`](test_lean/Smale09LinearProgramming.lean) |
 | **10** | **Lemme de Fermeture en Dynamique Discrète** | *Non résolu*. $C^r$ Closing Lemma pour difféomorphismes ($r \ge 2$). Cas continu résolu par Charles Pugh (1967). | [`inprogress/10-Smale-Closing-Lemma/`](inprogress/10-Smale-Closing-Lemma/) |
 | **11** | **Hyperbolicité des Dynamiques 1D** | **Partiellement résolu**. Démontré pour les polynômes et applications unimodales $C^2$ (Lyubich, Kozlovski-Shen-van Strien 2007). | [`inprogress/11-Smale-Hyperbolic-1D-Dynamics/`](inprogress/11-Smale-Hyperbolic-1D-Dynamics/) |
 | **12** | **Centralisateurs des Difféomorphismes** | **Résolu en topologie $C^1$** par Christian Bonatti, Sylvain Crovisier et Amie Wilkinson (2009). | [`resolved/12-Smale-Diffeomorphism-Centralizers/`](resolved/12-Smale-Diffeomorphism-Centralizers/) |
@@ -49,7 +49,16 @@ cd test_lean
 lake env lean Smale04IntegerRoots.lean
 lake env lean Smale06CelestialEquilibria.lean
 lake env lean Smale07SphereEnergy.lean
+lake env lean Smale09LinearProgramming.lean
 lake env lean Smale14LorenzAttractor.lean
 lake env lean Smale16JacobianConjecture.lean
 lake env lean Smale17PolynomialSolving.lean
 ```
+
+## 📄 Prépublications & Preprints
+
+* **Smale #04** : [`preprints/04-Smale-Integer-Polynomial-Roots/`](preprints/04-Smale-Integer-Polynomial-Roots/)
+* **Smale #06** : [`preprints/06-Smale-Celestial-Equilibria/`](preprints/06-Smale-Celestial-Equilibria/)
+* **Smale #07** : [`preprints/07-Smale-Sphere-Point-Distribution/`](preprints/07-Smale-Sphere-Point-Distribution/)
+* **Smale #09** : [`preprints/09-Smale-Linear-Programming/`](preprints/09-Smale-Linear-Programming/)
+* **Smale #16** : [`preprints/16-Smale-Jacobian-Conjecture/`](preprints/16-Smale-Jacobian-Conjecture/)
