@@ -46,7 +46,7 @@ lake env lean Smale17PolynomialSolving.lean
 
 ## 📄 Preprints & Publications
 
-Preprints are written in LaTeX (style Terence Tao), compiled with `pdflatex`, and packaged with Zenodo metadata:
+Preprints are written in LaTeX, compiled with `pdflatex`, and packaged with Zenodo metadata:
 * **Smale #07**: [`preprints/07-Smale-Sphere-Point-Distribution/`](preprints/07-Smale-Sphere-Point-Distribution/)
 * **Smale #14**: [`preprints/14-Smale-Lorenz-Attractor/`](preprints/14-Smale-Lorenz-Attractor/)
 * **Smale #17**: [`preprints/17-Smale-Polynomial-Solving/`](preprints/17-Smale-Polynomial-Solving/)
